@@ -1,0 +1,37 @@
+# Cloudflare Pages _redirects — Trygt Overvann AS
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Gamle SPA-URL-er (data-page routing) → nye kanoniske stier
+/utbygger                /tjenester/overvannsradgivning/  301
+/va                      /tjenester/va-prosjektering/     301
+/klima                   /tjenester/klimatilpasning/      301
+/kontroll                /tjenester/uavhengig-kontroll/   301
+/hav                     /tjenester/havnivaastigning/     301
+/hav-bolger              /tjenester/havnivaastigning/     301
+/breeam                  /tjenester/breeam-nor/           301
+/eu                      /tjenester/eu-taksonomi-crva/    301
+/taksonomi               /tjenester/eu-taksonomi-crva/    301
+
+# Vanlige variasjoner
+/tjenester/overvann      /tjenester/overvannsradgivning/  301
+/tjenester/hav           /tjenester/havnivaastigning/     301
+/tjenester/klima         /tjenester/klimatilpasning/      301
+/tjenester/kontroll      /tjenester/uavhengig-kontroll/   301
+/tjenester/va            /tjenester/va-prosjektering/     301
+/tjenester/breeam        /tjenester/breeam-nor/           301
+/tjenester/eu            /tjenester/eu-taksonomi-crva/    301
+/tjenester/crva          /tjenester/eu-taksonomi-crva/    301
+/tjenester/taksonomi     /tjenester/eu-taksonomi-crva/    301
+
+# Alternativ sti for sakkyndig/advokat-segmentet
+/advokater               /for-advokater/                  301
+/advokat                 /for-advokater/                  301
+/sakkyndig               /for-advokater/                  301
+
+# Gamle index-filer uten trailing slash
+/om.html                 /om/                             301
+/kontakt.html            /kontakt/                        301
+/tjenester.html          /tjenester/                      301
+
+# 404 fallback
+/*                       /404.html                        404

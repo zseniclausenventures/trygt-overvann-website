@@ -1,0 +1,41 @@
+# Trygt Overvann AS
+
+> Uavhengig rådgivning og prosjektering innen overvann, VA og klimatilpasning. Spesialist på vannrelatert klimarisiko etter EU-taksonomi Appendix A (CRVA) og BREEAM-NOR LE 07/LE 08. Etablert i Bergen, oppdrag i hele Norge.
+
+Trygt Overvann AS ble etablert av sivilingeniør Bengt Zseni-Clausen, med 15+ års erfaring fra teknisk infrastruktur og vannhåndtering, blant annet fra COWI AS. Selskapet leverer syv spesialiserte fagtjenester, og tilbyr også sakkyndig utredning for advokater og forsikringsselskap i vannrelaterte tvister.
+
+Faglig forankring: norske standarder (TEK17, SAK10, NS 5814, NS-EN 752), Norsk Vann 238/2021, klimadata fra Norsk Klimaservicesenter, BREEAM-NOR (LE 07 og LE 08), EU-taksonomiens Appendix A (CRVA og DNSH).
+
+## Tjenester
+
+- [Overvannsrådgivning og prosjektering](https://trygtovervann.no/tjenester/overvannsradgivning/): Dimensjonering etter TEK17 og Norsk Vann 238/2021, 3-trinnsstrategi (infiltrer/fordrøy/åpent flomløp), VA-rammeplan og detaljprosjekt
+- [VA-prosjektering](https://trygtovervann.no/tjenester/va-prosjektering/): Vann-, spillvanns- og overvannsanlegg fra forprosjekt til arbeidstegninger, koordinering med øvrige fag, CAD/BIM
+- [Klimatilpasning og flomvurderinger](https://trygtovervann.no/tjenester/klimatilpasning/): Fremtidssikker dimensjonering med klimafaktor 1,4, hydraulisk 1D/2D-modellering, flomlinjer og risikovurdering etter NS 5814
+- [Uavhengig kontroll SAK10](https://trygtovervann.no/tjenester/uavhengig-kontroll/): Kontroll av prosjektering og utførelse i tiltaksklasse 1–3, habilitet dokumentert
+- [Havnivåstigning og stormflo](https://trygtovervann.no/tjenester/havnivaastigning/): Vurderinger etter TEK17 §7-2 for kystnære prosjekter, kotehøyde etter Norges klimadata (Kartverket, Norsk Klimaservicesenter)
+- [EU-taksonomi: Klimarisiko og CRVA](https://trygtovervann.no/tjenester/eu-taksonomi-crva/): Climate Risk and Vulnerability Assessment etter Appendix A — substantial contribution (SC) og do no significant harm (DNSH), spesialisert på vannrelaterte risikoer
+- [BREEAM-NOR rådgivning](https://trygtovervann.no/tjenester/breeam-nor/): Dokumentasjon for LE 07 (overvann) og LE 08 (havnivå og flom) i sertifiseringsprosessen
+
+## For advokater
+
+- [Sakkyndig utredning — for advokater og forsikringsselskap](https://trygtovervann.no/for-advokater/): Uavhengig teknisk vurdering i vannrelaterte tvister (nabotvister, forsikringsoppgjør, byggesaksklager, erstatningskrav). Sakkyndig rapport, teknisk uttalelse, vitneførsel, befaring og hydraulisk beregning. Habilitetserklæring vedlagt hver rapport.
+
+## Ekspertise
+
+- Overvannshåndtering: 3-trinnsstrategi (infiltrasjon, fordrøyning, åpent flomløp), regnbed, permeable flater, fordrøyningsmagasin
+- Klimatilpasning: klimafaktor 1,4 for Vestland fylke, klimaprofiler fra Norsk Klimaservicesenter, 2D-hydraulisk modellering (SCALGO Live, MIKE+, InfoWorks ICM)
+- EU-taksonomi: Appendix A full dekning av 28 klimarisikoer, spesialist på vannrelaterte (flom, overvann, havnivå, erosjon, tørke, økt nedbør)
+- Norsk regelverk: plan- og bygningsloven, TEK17, SAK10, naboloven §2, vannressursloven §7, forurensningsloven
+- Standarder: NS 5814 (risikovurdering), NS-EN 752 (avløpssystemer utenfor bygninger), Norsk Vann 238/2021
+- BREEAM-NOR: LE 07 (overvannshåndtering, inkl. «excellent» nivå), LE 08 (havnivå, stormflo, flom)
+- Geografisk fokus: Bergen og Vestland fylke, men oppdrag i hele Norge
+
+## Om selskapet
+
+- [Om Trygt Overvann AS](https://trygtovervann.no/om/): Grunnlegger Bengt Zseni-Clausen, kompetanseprofil, metodikk, verdier
+- [Kontakt](https://trygtovervann.no/kontakt/): kontakt@trygtovervann.no, Bergen, Norge. Svar innen 24 timer virkedager.
+
+## Optional
+
+- Organisasjonsnummer, avtaler og forretningsvilkår: tilgjengelig på forespørsel via [kontakt](https://trygtovervann.no/kontakt/)
+- Honorær konsul for Ungarn i Bergen (under svergelse, 2026) — Bengt Zseni-Clausen i personlig funksjon, ikke del av Trygt Overvann AS sine tjenester
