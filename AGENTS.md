@@ -6,7 +6,7 @@ Deploy: git-auto-deploy er AV. Deploy skjer manuelt via wrangler — se DEPLOY.m
 
 ## SEO-status (sist oppdatert 2026-06-12)
 
-Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
+Full SEO-audit gjennomført (Codex-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
 - H1: NAP-konsistens — all e-post standardisert til kontakt@trygtovervann.no; for-advokater-telefon rettet.
 - H2: entitet/varemerke i schema — Organization name="Trygt Overvann", legalName="OhJoy Ventures AS", parentOrganization="Green Harmony Holding AS". vatID/taxID beholdt.

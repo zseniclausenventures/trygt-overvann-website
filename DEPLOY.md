@@ -16,14 +16,14 @@ Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via
     cd ~/zsen-tovw-check
     git add -A && git commit -m "oppdater nettside" && git push
     rm -rf /tmp/tovw-dist
-    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='.gitignore' --exclude='.wrangler' ~/zsen-tovw-check/ /tmp/tovw-dist/
+    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' ~/zsen-tovw-check/ /tmp/tovw-dist/
     wrangler pages deploy /tmp/tovw-dist --project-name=trygt-overvann-website --branch=main --commit-dirty=true
 
 ## Test mot preview (rører ikke live)
 Samme kommando, men bytt --branch=main til --branch=tovw-preview.
 
 ## Viktig
-- Internfiler (DEPLOY.md, README.md, CLAUDE.md, .gitignore, .wrangler) ekskluderes i rsync — skal ikke ut på web.
+- Internfiler (DEPLOY.md, README.md, CLAUDE.md, AGENTS.md, tasks/, .gitignore, .wrangler) ekskluderes i rsync — skal ikke ut på web.
 - _redirects, _headers, 404.html, sitemap.xml, robots.txt og llms.txt MÅ være med.
 - Ikke skru på git-auto-deploy i Cloudflare igjen.
 - Vises ikke en deploy: purge via trygtovervann.no-sonen (Caching, Purge Everything) — og si fra, da ligger det trolig en Cache Rule som overstyrer _headers.
