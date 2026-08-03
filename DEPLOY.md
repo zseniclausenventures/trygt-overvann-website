@@ -4,7 +4,7 @@ Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via
 
 ## Fakta
 - Kanonisk repo: zseniclausenventures/trygt-overvann-website
-- Lokal klon: ~/zsen-tovw-check
+- Lokal klon: ~/trygt-overvann-website
 - Cloudflare Pages-prosjekt: trygt-overvann-website
 - Domene: trygtovervann.no  |  Produksjonsbranch: main
 - Auto-deploy i Cloudflare: AV
@@ -13,10 +13,10 @@ Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via
 
 ## Deploy til produksjon (live)
 
-    cd ~/zsen-tovw-check
+    cd ~/trygt-overvann-website
     git add -A && git commit -m "oppdater nettside" && git push
     rm -rf /tmp/tovw-dist
-    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' ~/zsen-tovw-check/ /tmp/tovw-dist/
+    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' ~/trygt-overvann-website/ /tmp/tovw-dist/
     wrangler pages deploy /tmp/tovw-dist --project-name=trygt-overvann-website --branch=main --commit-dirty=true
 
 ## Test mot preview (rører ikke live)
