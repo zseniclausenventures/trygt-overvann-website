@@ -1,8 +1,27 @@
 # trygt-overvann-website
 
-Trygt Overvann AS sin offentlige nettside (trygtovervann.no). Statisk multi-side, ingen build.
+Trygt Overvann™ sin offentlige nettside (trygtovervann.no). Varemerket drives av
+OhJoy Ventures AS. Statisk multi-side, ingen build.
 
 Deploy: git-auto-deploy er AV. Deploy skjer manuelt via wrangler — se DEPLOY.md for full instruks og den eksakte kommandoen.
+
+## Lokal klon (sist oppdatert 2026-08-03)
+
+Mappa er `~/trygt-overvann-website`. Den het `~/zsen-tovw-check` fram til 03.08.2026.
+
+Bakgrunn: hjemmemappa hadde fire mapper som alle lignet nettsiden, og denne — den eneste
+som faktisk er trygtovervann.no — hadde det minst gjenkjennelige navnet. Mappa som het
+`to-hjemmeside` var en nedlagt forgjenger (én 99 kB-side, eget privat repo), ikke en eldre
+versjon av denne siden. De tre nedlagte er arkivert til
+`~/Backups/nettside-arkiv-2026-08-03/` med forklaring i `LES-MEG.md` der.
+
+🔴 Én av dem, `bzsc-tohj-check`, er klonet fra en gammel GitHub-konto der repoet er
+slettet (404). Arkivmappa er derfor den eneste kopien som finnes.
+
+To lærdommer for neste gang:
+- Sjekk live mot lokal kilde før du redigerer — mappenavn er ikke bevis.
+- Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
+  samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
 ## SEO-status (sist oppdatert 2026-06-12)
 
