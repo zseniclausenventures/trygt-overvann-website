@@ -43,6 +43,28 @@ Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deploye
 
 Schema-redigering: Organization-noden er duplisert identisk i alle 13 HTML-filer — bruk perl -0777 over alle filer for konsistens, og valider JSON-LD etterpå. NB: escape "@type" som "\@type" i Perl-erstatninger (ellers tolkes @ som array).
 
+## Navnebruk (besluttet 02.09.2026)
+
+Gjennomgaende merkenavn er **«Trygt Overvann»** — uten AS. Selskapet ble omdoept
+fra Trygt Overvann AS til OhJoy Ventures AS i Broennoeysund i april 2026, men siden
+brukte det gamle AS-navnet 118 steder. Det ga tre konkurrerende varianter og
+garantert NAP-avvik mot Proff, 1881 og Gulesider, som alle henter fra registeret.
+
+Reglene:
+- Synlig tekst, titler, og:title/twitter, description, llms.txt, robots.txt, nav.js
+  → «Trygt Overvann»
+- Juridisk enhet naar org.nr. 932 480 956 naevnes → **«OhJoy Ventures AS»**.
+  🔴 Kontaktsidens organisasjonsblokk paret feil navn med riktig org.nr fram til
+  02.09.2026. Blindt soek-og-erstatt ville sementert feilen — sjekk alltid
+  konteksten rundt org.nr.
+- `legalName` i schema → «OhJoy Ventures AS» (uendret)
+- `alternateName` beholder «Trygt Overvann AS» (13 steder). Det er der et tidligere
+  navn hoerer hjemme, og det hjelper Google koble den gamle identiteten til den nye.
+  Ikke fjern dem.
+
+Gjenstaar for M1: Google Business Profile (tjenesteomraade-modus, ikke synlig
+adresse — se M4) og NAP-konsistente siteringer. Krever Bengts handling.
+
 ## E-post: Cloudflare Email Routing (satt opp 02.09.2026)
 
 `kontakt@trygtovervann.no` videresendes til `trygt.overvann@gmail.com`. Sonen tar
