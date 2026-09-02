@@ -1,4 +1,4 @@
-/* Trygt Overvann AS — navigation enhancements (no SPA routing) */
+/* Trygt Overvann — navigation enhancements (no SPA routing) */
 (function () {
   'use strict';
 

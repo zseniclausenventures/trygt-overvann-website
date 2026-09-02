@@ -1,4 +1,4 @@
-# robots.txt — Trygt Overvann AS
+# robots.txt — Trygt Overvann
 # https://trygtovervann.no
 
 # ---- Søkemotorer ----
