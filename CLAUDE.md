@@ -33,10 +33,10 @@ Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deplo
 - M2: sameAs utvidet med Brønnøysund Enhetsregisteret + Proff.no (personlig LinkedIn bevisst utelatt pga COWI-ansettelse).
 - M3: llms.txt synket med eierskap (OhJoy Ventures AS / varemerke).
 - M4: presis plassering fjernet fra schema (geo + streetAddress + postalCode); synlig "Landås, Bergen" → "Bergen". Beholder Bergen som område.
+- M5: kontekstuell krysslinking (02.09.2026) — 16 lenker i brødteksten på de sju tjenestesidene, alle som lenke rundt ord som allerede sto der. Hver side har nå både utgående og innkommende kontekstlenker; `uavhengig-kontroll` og `breeam-nor` hadde null innkommende før. NB: FAQ-teksten er duplisert i JSON-LD — forankre mot `</p>` så bare den synlige varianten treffes.
 
 Gjenstår fra auditen:
 - M1 (utenfor repo): Google Business Profile + NAP-konsistente siteringer (Proff/1881/Gulesider). Høyeste lokale løftestang.
-- M5: kontekstuell krysslinking i løpende tjenestetekst (ikke bare meny/footer/sidebar).
 - Lav prioritet: 404.html noindex, render-blocking Google Fonts, background-image URL-encoding.
 
 Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
