@@ -15,12 +15,15 @@ Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via
 
     cd ~/ClaudeCode/active/trygt-overvann-website
     git add -A && git commit -m "oppdater nettside" && git push
-    rm -rf /tmp/tovw-dist
-    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' ~/ClaudeCode/active/trygt-overvann-website/ /tmp/tovw-dist/
-    wrangler pages deploy /tmp/tovw-dist --project-name=trygt-overvann-website --branch=main --commit-dirty=true
+    DIST=$(mktemp -d /tmp/tovw-dist.XXXXXX)
+    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' ~/ClaudeCode/active/trygt-overvann-website/ "$DIST"/
+    wrangler pages deploy "$DIST" --project-name=trygt-overvann-website --branch=main --commit-dirty=true
 
 ## Test mot preview (rører ikke live)
 Samme kommando, men bytt --branch=main til --branch=tovw-preview.
+
+Staging-mappa lages med `mktemp -d` framfor `rm -rf` paa en fast sti: bash-portvakten
+blokkerer `rm -rf`, og en fersk mappe kan uansett ikke arve rester fra forrige deploy.
 
 ## Viktig
 - Internfiler (DEPLOY.md, README.md, CLAUDE.md, AGENTS.md, tasks/, .gitignore, .wrangler) ekskluderes i rsync — skal ikke ut på web.
