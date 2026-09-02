@@ -42,3 +42,53 @@ Gjenstår fra auditen:
 Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
 
 Schema-redigering: Organization-noden er duplisert identisk i alle 13 HTML-filer — bruk perl -0777 over alle filer for konsistens, og valider JSON-LD etterpå. NB: escape "@type" som "\@type" i Perl-erstatninger (ellers tolkes @ som array).
+
+## E-post: Cloudflare Email Routing (satt opp 02.09.2026)
+
+`kontakt@trygtovervann.no` videresendes til `trygt.overvann@gmail.com`. Sonen tar
+imot e-post via Cloudflare; det sendes ingenting ut derfra.
+
+| Ressurs | Verdi |
+|---|---|
+| zone_id | `377d254ff31245a9e6a50dc5e38ca54d` |
+| account_id | `a883a1ff61882fbcf8756f078097748f` |
+| Regel «kontakt» | `05ea119562d846a8b956e9dac0b66b4c` |
+| Catch-all | `314a59add4d44523ba8163518c65d2f6` — `drop`, enabled |
+| Destination | `trygt.overvann@gmail.com`, verifisert 02.09.2026 |
+
+DNS lagt til (fem poster; CNAME-ene til Pages er urørt): MX route1/2/3
+.mx.cloudflare.net (prio 5/33/78), TXT SPF `v=spf1 include:_spf.mx.cloudflare.net ~all`,
+TXT DKIM `cf2024-1._domainkey`, TXT `_dmarc` med
+`v=DMARC1; p=quarantine; rua=mailto:kontakt@trygtovervann.no; adkim=r; aspf=r`.
+
+### Feller (kostet tid 02.09.2026)
+
+🔴 **Email Routing ligger IKKE under sonen lenger.** Det er flyttet til kontonivå:
+dashboard → **Compute → Email Service → Email Routing → Onboard Domain**. Sonens
+egen Email-meny viser bare DMARC Management og Email Security, så det ser ut som
+produktet mangler.
+
+🔴 **Sone-endepunktene for aktivering svarer 403 uansett token.**
+`GET/POST /zones/{id}/email/routing`, `/enable` og `/dns` ga «Authentication error»
+med et token som hadde Email Routing Rules:Edit, DNS:Edit, Zone:Read og
+Account Email Routing Addresses:Edit — mens `/email/routing/rules` og
+`/dns_records` virket fint på samme token. Aktivering må gjøres i dashboardet;
+resten (regler, catch-all, DNS) går utmerket via API.
+
+- `zones`-objektets `permissions`-liste nevner ikke Email Routing i det hele tatt,
+  selv når tokenet har tilgang. Den listen er ikke et sannhetsvitne — test kallet.
+- Catch-all med `enabled: true` + `drop` tar imot posten og kaster den stille.
+  Deaktivert catch-all ville avvist i SMTP og gitt avsender en bounce. Valgt: drop.
+- DKIM-posten kom med på kjøpet fra Email Service (utgående e-post). Ufarlig, men
+  den var ikke bestilt.
+
+### API-token
+
+Ligger i macOS Keychain, ikke i Doppler (workspace står på 10 av 10 prosjekter og
+flere krever betalt plan). Hentes med
+`security find-generic-password -a cloudflare -s trygtovervann-cf-token -w`.
+Skal det legges inn på nytt: kjør kommandoen under i et **ekte terminalvindu** —
+en skjult prompt kjørt via `!` inne i Claude Code får EOF og lagrer tom streng
+uten å feile:
+
+    security add-generic-password -a cloudflare -s trygtovervann-cf-token -U -w
