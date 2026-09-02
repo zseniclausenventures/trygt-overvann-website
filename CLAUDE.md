@@ -23,7 +23,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-06-12)
+## SEO-status (sist oppdatert 2026-09-02)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -36,7 +36,7 @@ Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deplo
 - M5: kontekstuell krysslinking (02.09.2026) — 16 lenker i brødteksten på de sju tjenestesidene, alle som lenke rundt ord som allerede sto der. Hver side har nå både utgående og innkommende kontekstlenker; `uavhengig-kontroll` og `breeam-nor` hadde null innkommende før. NB: FAQ-teksten er duplisert i JSON-LD — forankre mot `</p>` så bare den synlige varianten treffes.
 
 Gjenstår fra auditen:
-- M1 (utenfor repo): Google Business Profile + NAP-konsistente siteringer (Proff/1881/Gulesider). Høyeste lokale løftestang.
+- M1 (utenfor repo, HØYESTE): Google Business Profile + NAP-konsistente siteringer (Proff/1881/Gulesider). Navnespørsmålet som blokkerte er avklart 02.09 — se «Navnebruk». Gjenstår: adressemodus (GBP krever ekte adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4), og selve opprettelsen.
 - Lav prioritet: 404.html noindex, render-blocking Google Fonts, background-image URL-encoding.
 
 Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
