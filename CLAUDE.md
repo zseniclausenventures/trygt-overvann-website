@@ -7,7 +7,8 @@ Deploy: git-auto-deploy er AV. Deploy skjer manuelt via wrangler — se DEPLOY.m
 
 ## Lokal klon (sist oppdatert 2026-08-03)
 
-Mappa er `~/trygt-overvann-website`. Den het `~/zsen-tovw-check` fram til 03.08.2026.
+Mappa er `~/ClaudeCode/active/trygt-overvann-website`. Den het `~/zsen-tovw-check`
+fram til 03.08.2026, og laa i hjemmemappa fram til flyttingen 04.08.2026.
 
 Bakgrunn: hjemmemappa hadde fire mapper som alle lignet nettsiden, og denne — den eneste
 som faktisk er trygtovervann.no — hadde det minst gjenkjennelige navnet. Mappa som het
@@ -23,7 +24,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-09-02)
+## SEO-status (sist oppdatert 2026-09-07)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -35,7 +36,7 @@ Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deplo
 - M4: presis plassering fjernet fra schema (geo + streetAddress + postalCode); synlig "Landås, Bergen" → "Bergen". Beholder Bergen som område.
 - M5: kontekstuell krysslinking (02.09.2026) — 16 lenker i brødteksten på de sju tjenestesidene, alle som lenke rundt ord som allerede sto der. Hver side har nå både utgående og innkommende kontekstlenker; `uavhengig-kontroll` og `breeam-nor` hadde null innkommende før. NB: FAQ-teksten er duplisert i JSON-LD — forankre mot `</p>` så bare den synlige varianten treffes.
 
-- Navn/person/pris-rydding (07.09.2026): ™ paa alle 163 navneforekomster i utrullede filer, logolenken i toppmenyen rettet paa alle 13 sider, sivilingenioer→ingenioer, 15+→17+ aar, konsul-vervet ut, alle priser ut. Se «Navnebruk» og «Personinformasjon og priser». IKKE deployet.
+- Navn/person/pris-rydding (07.09.2026, DEPLOYET til prod samme dag): ™ paa alle 163 navneforekomster i utrullede filer, logolenken i toppmenyen rettet paa alle 13 sider, sivilingenioer→ingenioer, 15+→17+ aar, konsul-vervet ut, alle priser ut. Se «Navnebruk» og «Personinformasjon og priser».
 
 Gjenstår fra auditen:
 - M1 (utenfor repo, HØYESTE): Google Business Profile + NAP-konsistente siteringer (Proff/1881/Gulesider). Navnespørsmålet som blokkerte er avklart 02.09 — se «Navnebruk». Gjenstår: adressemodus (GBP krever ekte adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4), og selve opprettelsen.
