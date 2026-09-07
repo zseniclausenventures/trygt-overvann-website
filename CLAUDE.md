@@ -108,6 +108,15 @@ adresse — se M4) og NAP-konsistente siteringer. Krever Bengts handling.
   innledende vurdering og at fastpris/rammeoverslag gis i skriftlig tilbud.
   Hvert svar staar **to steder** per fil — i FAQPage-JSON-LD og i den synlige
   FAQ-blokken. Endrer du ett, endre begge.
+- **Befaring og beregninger er IKKE lenger sakkyndig-leveranser.** Kulepunktene
+  «Befaring med fotodokumentasjon» (med drone- og terrengopptak) og
+  «Beregninger og modellering» er tatt ut av «Hva du faar» paa /for-advokater/,
+  og befaring er fjernet som `Offer` i OfferCatalog. llms.txt lister naa bare
+  rapport, teknisk uttalelse og vitnefoersel. Drone skal ikke tilbake.
+  Bevisst BEHOLDT etter Bengts avgjoerelse 07.09: omtalen av befaring og
+  beregninger i metadata, i JSON-LD-`description`, som steg 4 i prosesslista og
+  i FAQ-svaret om oppdrag utenfor Bergen. Sida er altså med vilje ikke helt
+  konsistent her — ikke «rydd» det uten aa spoerre.
   I tillegg er `"priceRange": "$$"` fjernet fra LocalBusiness-noden paa forsiden.
   Det er et maskinlesbart prissignal Google viser som prisnivaa, og et ordsoek
   etter «kr», «kroner» eller beloep finner det aldri. Legg det ikke tilbake.
