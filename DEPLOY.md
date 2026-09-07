@@ -1,4 +1,4 @@
-# Trygt Overvann AS — Deploy
+# Trygt Overvann™ — Deploy
 
 Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via wrangler (manuell). Git-auto-deploy er bevisst AVSLÅTT — vi styrer deploy selv.
 

@@ -1,6 +1,6 @@
-# Trygt Overvann AS — nettside
+# Trygt Overvann™ — nettside
 
-Statisk multi-side nettside for Trygt Overvann AS, optimalisert for klassisk SEO og AI-SEO.
+Statisk multi-side nettside for Trygt Overvann™, optimalisert for klassisk SEO og AI-SEO.
 
 **Live:** https://trygtovervann.no
 **Hosting:** Cloudflare Pages (auto-deploy fra `main`)
