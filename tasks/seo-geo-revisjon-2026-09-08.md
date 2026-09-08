@@ -194,17 +194,74 @@ tilstand som ikke gjelder, og neste person som redigerer den får ingen endring.
 - BreadcrumbList korrekt på alle undersider.
 - CLS godt innenfor terskel overalt.
 
+## 4b. Rettet og deployet samme dag (bolk A + B)
+
+Fem deploys 08.09. Alle tall målt med samme harness før og etter.
+
+| Side | LCP før | LCP nå | KB før | KB nå |
+|---|---|---|---|---|
+| /tjenester/uavhengig-kontroll/ | 7772 | **2128** | 1489 | 382 |
+| /tjenester/breeam-nor/ | 4396 | **2200** | 814 | 579 |
+| /tjenester/overvannsradgivning/ | 4144 | **1716** | 730 | 374 |
+| /tjenester/eu-taksonomi-crva/ | 3344 | **1380** | 603 | 335 |
+| /tjenester/ | 3308 | **1724** | 593 | 274 |
+| / | 2652 | **1980** | 1060 | 561 |
+| /tjenester/klimatilpasning/ | 2620 | **1528** | 456 | 277 |
+| /tjenester/havnivaastigning/ | 2120 | 1680 | 440 | 386 |
+| /tjenester/va-prosjektering/ | 1856 | 712 | 308 | 294 |
+
+**Sider over 2500 ms: 7 → 0.** Total overført 6980 → 3788 KB (46 % mindre).
+Verste CLS 0,042 (uendret, godt under 0,1).
+
+Gjort:
+- `Flom under bro.webp` gjenopprettet fra arkivet 03.08 og lagt i markup.
+- Alle hero-bilder fra CSS `background-image` til `<img>` med
+  `fetchpriority="high"`. Løser LCP **og** at fem sider hadde null
+  indekserbare bilder (funn 3.4).
+- Nye hero-derivater i 3.2:1, som er formatet `.svc-hero` faktisk viser.
+- `logo.jpg` var 806×806 og 56 KB, vist 38×38, eager, på hver side.
+  Ny `logo-96.webp` er 2,5 KB. JSON-LD beholder den store `logo.jpg`.
+- Inline brødtekstbilder oppga alle `1200x800` uansett fil — tre var
+  portrett. Rettet til faktiske dimensjoner.
+- Beskrivende alt-tekst på alle hero-bilder (var sidetittelen).
+
+### 🔴 Lærdom: assets ligger 4 timer på edge
+
+Første deploy tok **ikke** effekt. Cloudflare svarte `cf-cache-status: HIT`
+med gammel `content-length`. Verre enn treg oppdatering: HTML-en var ny,
+men `styles.css` var gammel, så forsiden ba fortsatt om det slettede
+bakgrunnsbildet og ga 404 i prod *etter* at fiksen var deployet.
+
+Rot: filnavn uten innholdshash + sonens Browser Cache TTL på 4 t.
+DEPLOY.md påsto «1t cache på /assets/ — deploys vises uten manuell purge».
+Begge deler var feil. Keychain-tokenet har ikke purge-tilgang.
+
+Regelen står nå i DEPLOY.md: **endrer du innholdet i en assetfil, endre
+også URL-en.** Bilder får nytt filnavn, `styles.css` har `?v=ÅÅÅÅMMDD`.
+
+### Korreksjon til funn 3.12
+
+Rapporten meldte først `Grønn grøft.webp` og `takvann…webp` som ubrukte.
+Feil — de er inline brødtekstbilder på klimatilpasning og
+overvannsradgivning. Søket bommet fordi HTML-en URL-koder mellomrom, men
+ikke `ø`. **Det finnes ingen ubrukte assets.**
+
 ## 5. Prioritert rekkefølge
 
-**Bolk A — brutt i prod (rask, høy effekt)**
-1. www-vertsnavnet → 522. Bind i Cloudflare Pages, eller redirect til apex.
-2. `Flom under bro.webp` 404 på forsiden.
+**Bolk A — brutt i prod**
+1. ~~`Flom under bro.webp` 404 på forsiden~~ — RETTET 08.09.
+2. 🔴 **www-vertsnavnet → 522. GJENSTÅR, krever Bengt.** DNS er allerede
+   riktig (`www` CNAME-er til Pages-prosjektet, proxied). Feilen er at
+   Pages-prosjektet ikke har `www.trygtovervann.no` i lista over custom
+   domains, så Pages avviser Host-headeren. Wrangler 4.71 har ingen
+   `pages domain`-kommando, og verken Keychain-tokenet eller wranglers
+   OAuth-token autentiserer mot Pages-domene-API-et.
+   **Dashbord → Workers & Pages → trygt-overvann-website → Custom domains
+   → Set up a custom domain → `www.trygtovervann.no`.** DNS finnes, så
+   den skal verifisere umiddelbart. Canonical peker allerede på apex,
+   så ingen duplikatrisiko.
 
-**Bolk B — ytelse (7 sider stryker)**
-3. Komprimer/skaler alle ni hero-bilder. 790 KB → mål under 150 KB.
-4. Gjør hero til `<img>` med `fetchpriority="high"` i stedet for CSS-bakgrunn.
-   Løser LCP og de manglende indekserbare bildene i én operasjon (3.3 + 3.4).
-5. Utsett bakgrunnsbildene under folden på forsiden og /tjenester/.
+**Bolk B — ytelse** — FERDIG 08.09, se 4b.
 
 **Bolk C — indeksering og måling**
 6. Search Console + Bing Webmaster, verifiser via DNS TXT. Send inn sitemap.

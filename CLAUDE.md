@@ -46,6 +46,76 @@ Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deploye
 
 Schema-redigering: Organization-noden er duplisert identisk i alle 13 HTML-filer — bruk perl -0777 over alle filer for konsistens, og valider JSON-LD etterpå. NB: escape "@type" som "\@type" i Perl-erstatninger (ellers tolkes @ som array).
 
+## SEO/GEO-revisjon 08.09.2026 — ytelse og bildehaandtering
+
+Full revisjon maalt mot LIVE prod, ikke mot repoet. Rapport med alle funn:
+`tasks/seo-geo-revisjon-2026-09-08.md`. Bolk A+B rettet og deployet samme dag.
+
+**Resultat: 7 av 12 sider strauk paa LCP, naa 0. Total vekt 6980 -> 3788 KB.**
+
+To ting var oedelagt i prod uten at noen visste det:
+
+1. 🔴 **`styles.css` pekte paa `assets/Flom under bro.webp`, som aldri har
+   ligget i dette repoet.** Referansen ble arvet fra forgjenger-sida.
+   Klimatilpasning-seksjonen paa forsiden brukte regelen uten aa overstyre
+   den, og `.split-img` har ingen reservefarge — saa halve seksjonen sto tom.
+   Bildet er hentet fra `~/Backups/nettside-arkiv-2026-08-03/`.
+2. 🔴 **www.trygtovervann.no svarer HTTP 522 — GJENSTAAR.** DNS er riktig;
+   Pages-prosjektet mangler `www` i custom domains. Krever dashbordet.
+
+### Bilder: <img>, ikke background-image
+
+Alle hero-bilder var CSS `background-image` i full opploesning. De er naa
+`<img>` med `fetchpriority="high"` og derivater i 3.2:1 — formatet
+`.svc-hero` faktisk viser (maks 440 px hoy). Det loeste to ting samtidig:
+LCP, og at fem sider hadde **null indekserbare bilder**, fordi Google Images
+ikke ser CSS-bakgrunner og `role="img"` + `aria-label` ikke er alt-tekst.
+
+Ikke gaa tilbake til `background-image` for fotografier.
+
+`logo.jpg` var 806x806 og 56 KB, vist 38x38, eager, paa hver eneste side.
+`<img>` bruker naa `logo-96.webp` (2,5 KB); **JSON-LD beholder `logo.jpg`**,
+som ikke hentes av nettleseren og boer vaere stor.
+
+### 🔴 Assets ligger 4 timer paa edge — endre URL, ikke bare fila
+
+Foerste deploy tok ikke effekt: `cf-cache-status: HIT` med gammel
+`content-length`. Verre enn treg oppdatering — ny HTML moette gammel
+`styles.css`, saa forsiden ga 404 paa det slettede bildet ETTER at fiksen
+var deployet.
+
+Rot: filnavn uten innholdshash + sonens Browser Cache TTL paa 4 t.
+`_headers` ber om 3600, men `/assets/*`-regelen slaar aldri gjennom.
+DEPLOY.md paastod «1t cache paa /assets/ — deploys vises uten manuell purge»;
+begge deler var feil, og er rettet. Keychain-tokenet har ikke purge-tilgang.
+
+**Regel: endrer du innholdet i en assetfil, endre ogsaa URL-en.** Bilder faar
+nytt filnavn, `styles.css` har `?v=AAAAMMDD` som skal bumpes ved CSS-endring.
+
+### Feller ved bildearbeid
+
+- **Verifiser bildet, ikke filstoerrelsen.** Et regenerert hero ble stille
+  hentet fra feil kilde fordi skriptet gjenbrukte en midlertidig fil fra
+  forrige iterasjon. Stoerrelsen saa plausibel ut. Se paa bildet.
+- **Filnavn med mellomrom OG `ø` gjoer grep upaalitelig** — HTML-en koder
+  mellomrom som `%20`, men lar `ø` staa raa. Et soek paa den fullkodede
+  formen bommer. Kostet en feilaktig «ubrukt asset»-melding i rapporten.
+- **`loading="lazy"` utsetter ikke bilder naer viewporten.** Broedtekstbildet
+  paa uavhengig-kontroll startet 676 ms inn og delte baandbredde med heroen.
+  Lazy er ikke nok; stoerrelsen betyr fortsatt noe.
+- Inline broedtekstbilder oppga alle `width="1200" height="800"` uansett
+  faktisk fil, og tre av dem er portrett. Rettet.
+
+### Gjenstaar fra revisjonen (bolk C-F)
+
+Maaling foerst: **ingen Search Console, ingen Bing, ingen analytics** —
+verken meta-tag eller DNS TXT. Alt som fikses maales blindt til det er paa
+plass. Deretter: sitemap `lastmod` staar fortsatt paa 2026-04-18 og ingen
+side har `dateModified` (det finnes ingen `WebPage`-node aa henge den paa);
+entiteten er splittet i `#organization` og `#localbusiness`; Person-noden
+har ingen `sameAs`; /om/ og /tjenester/ har h1 + kun én h2; åtte titler er
+over 60 tegn; og:image er portrett paa fire sider. Se rapporten.
+
 ## Navnebruk (besluttet 02.09.2026, skjerpet 07.09.2026)
 
 Gjennomgaende merkenavn er **«Trygt Overvann™»** — med varemerkesymbol, uten AS.
