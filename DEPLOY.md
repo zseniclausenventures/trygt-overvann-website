@@ -9,7 +9,15 @@ Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via
 - Domene: trygtovervann.no  |  Produksjonsbranch: main
 - Auto-deploy i Cloudflare: AV
 - Kontaktskjema: Formspree-ID xreyeavp, hardkodet i assets/nav.js
-- Caching: _headers gir no-cache på HTML + 1t cache på /assets/ — deploys vises uten manuell purge
+- Caching: HTML er no-cache og oppdateres straks. **/assets/ er IKKE 1 time.**
+  `_headers` ber om 3600, men sonens Browser Cache TTL (4 t) overstyrer, og
+  `/assets/*`-regelen slår aldri gjennom. Overskriver du en assetfil UTEN å
+  endre navnet, ligger den gamle på edge i inntil 4 timer — også når HTML-en
+  allerede er ny. Det traff oss 08.09: ny HTML møtte gammel styles.css og ba
+  om et bakgrunnsbilde som var fjernet. Tokenet i Keychain har ikke
+  purge-tilgang, så purge må gjøres i dashbordet.
+  **Regel: endrer du innholdet i en assetfil, endre også URL-en.** Bilder får
+  nytt filnavn; `styles.css` har `?v=ÅÅÅÅMMDD` som skal bumpes ved CSS-endring.
 
 ## Innlogging (verifisert 07.09.2026)
 
