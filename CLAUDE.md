@@ -46,6 +46,78 @@ Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deploye
 
 Schema-redigering: Organization-noden er duplisert identisk i alle 13 HTML-filer — bruk perl -0777 over alle filer for konsistens, og valider JSON-LD etterpå. NB: escape "@type" som "\@type" i Perl-erstatninger (ellers tolkes @ som array).
 
+## Superlativ og COWI-omtale (Bengts avgjoerelse 08.09.2026)
+
+### «Norges spesialist» er fjernet — ikke gjeninnfoer den
+
+Sto **38 steder over alle 13 sider**, minst to per side: bunnteksten og
+`description` paa Organization-noden. Naa **«Spesialist paa vannrelatert
+klimarisiko»** overalt, samme ordlyd som llms.txt allerede brukte.
+
+Grunnen er ikke stilistisk. «Norges» gjoer utsagnet til en paastand om
+markedsposisjon — et faktisk forhold. **Markedsfoeringsloven § 3 andre ledd**
+krever at slike paastander kan dokumenteres, og at dokumentasjonen foreligger
+**naar markedsfoeringen skjer**, ikke naar noen spoer. For et firma etablert
+2023 finnes ikke den dokumentasjonen. Verst: paastanden sto i samme JSON-LD-
+blokk som `numberOfEmployees: 1`.
+
+(§ 26 er forbudet mot villedende framstilling *naeringsdrivende imellom* —
+sporet som gjelder her, siden kundene er kommuner, utbyggere, ingenioerfirmaer,
+advokater og forsikringsselskap. Det er § 3 som stiller dokumentasjonskravet.)
+
+Den reelle risikoen er ikke tilsyn, men **sakkyndigrollen**: motpartens advokat
+leser nettsida, og en udokumenterbar nasjonal superlativ er et gratis
+angrepspunkt mot troverdigheten i en prosedyre.
+
+🔴 Beskrivelser ligger i `description` i strukturerte data paa alle sider, og
+det er den strengen AI-soek gjengir. En superlativ der reproduseres i svar du
+ikke kontrollerer, med deg som kilde.
+
+### COWI: ansettelsen LOEPER — "tidligere" var feil
+
+Bengt bekreftet 08.09 at han **fortsatt er ansatt i COWI**. /om/ sa «tidligere
+hos COWI», og Person-noden hadde `alumniOf: COWI`. Begge er rettet:
+
+- /om/ sier naa «blant annet fra COWI» — den noeytrale formen
+  /for-advokater/ («flere aars praksis i COWI AS») og llms.txt («blant annet
+  fra COWI AS») allerede brukte.
+- `alumniOf`-noden er **fjernet**. Den er for utdanningsinstitusjoner, Google
+  bruker den ikke til noe, og den hevdet i maskinlesbar form at forholdet var
+  avsluttet. Samme moenster som `hasCredential`/`educationalLevel: "Master"`
+  som ble fjernet 07.09 — en schema-node som fantes kun for aa hevde noe.
+  Gjeninnfoer ingen av dem.
+
+Skriv **aldri** COWI-omtalen om til fortid igjen.
+
+### 🔴 AAPENT: skal ansettelsen opplyses eksplisitt?
+
+Rettingen over fjernet det som var **uriktig**. Den tar ikke stilling til om
+det loepende ansettelsesforholdet skal **opplyses**. Det er Bengts beslutning,
+ikke en opprydding — den beroerer baade arbeidsgiverforholdet og habilitet.
+
+Hvorfor det henger sammen med resten av sida:
+
+- Forsiden har **«100 % Uavhengig»** som noekkeltall (to steder), /om/ sier
+  «uavhengig raadgivning **uten interessekonflikter**» og «ingen binding til
+  leverandoerer eller utbyggere». Alle er absolutte.
+- Habilitetssvaret paa /for-advokater/ er formulert i **fortid**: «Hvis jeg
+  *tidligere* har vaert involvert … Habilitetserklaering som beskriver
+  eventuelle *tidligere* forbindelser.» Et loepende ansettelsesforhold hos et
+  av landets stoerste raadgivende ingenioerfirmaer er en annen og sterkere
+  kategori enn en historisk binding — og COWI prosjekterer VA og overvann i
+  stort omfang, saa sannsynligheten for beroering i en konkret sak er reell.
+- Uavhengig kontroll etter SAK10 har uavhengighet som **vilkaar**, ikke som
+  markedsfoeringspoeng.
+- Google Business Profile (M1) er langt mer synlig enn LinkedIn-lenken som
+  allerede ble utelatt av COWI-hensyn.
+
+Det som skader er ikke konflikten — den haandteres ved aa takke nei. Det er
+**rekkefoelgen**: at motparten oppdager ansettelsen etter aa ha lest nettsida.
+Da handler saken om hvorfor det sto som det sto.
+
+Ikke endre «100 % Uavhengig», habilitetssvaret eller GBP-planen uten at Bengt
+har tatt denne beslutningen.
+
 ## SEO/GEO-revisjon 08.09.2026 — ytelse og bildehaandtering
 
 Full revisjon maalt mot LIVE prod, ikke mot repoet. Rapport med alle funn:

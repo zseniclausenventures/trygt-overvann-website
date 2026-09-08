@@ -276,8 +276,15 @@ ikke `ø`. **Det finnes ingen ubrukte assets.**
 
 **Bolk E — tekst**
 13. Kort ned de åtte titlene.
-14. Avklar «tidligere hos COWI» + fjern `alumniOf`.
-15. Dokumenter eller mykne «Norges spesialist».
+14. ~~Avklar «tidligere hos COWI» + fjern `alumniOf`~~ — RETTET 08.09.
+    Bengt bekreftet at ansettelsen løper. «tidligere hos» → «blant annet fra»,
+    `alumniOf` fjernet. 🔴 ÅPENT: om ansettelsen skal *opplyses eksplisitt*,
+    og hva det i så fall betyr for «100 % Uavhengig», habilitetssvaret på
+    /for-advokater/ (formulert i fortid) og GBP. Se CLAUDE.md.
+15. ~~Dokumenter eller mykne «Norges spesialist»~~ — RETTET 08.09.
+    38 forekomster over 13 sider → «Spesialist på vannrelatert klimarisiko».
+    Dokumentasjonsplikten er mfl. **§ 3 andre ledd**, ikke § 26 som først
+    oppgitt; § 26 er forbudet mot villedende framstilling B2B.
 16. Bygg ut /tjenester/ og /om/.
 
 **Bolk F — kosmetikk**
