@@ -1,3 +1,7 @@
+# NB: max-age for /assets/* er kun nettleserens TTL. Cloudflare-kanten cacher i
+# tillegg etter sonens Browser Cache TTL (4 t) og bryr seg ikke om verdien her.
+# Filnavnene har ingen hash — endrer du innholdet i en fil, må URL-en endres
+# (nytt filnavn eller ?v=dato), ellers møter ny HTML gammel CSS/JS i 4 timer.
 /*
   Cache-Control: public, max-age=0, must-revalidate
 

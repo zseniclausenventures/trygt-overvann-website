@@ -223,7 +223,7 @@ a{color:inherit}
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,5vw,5rem)}
 .contact-block{margin-bottom:2rem}
-.c-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem}
+.c-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.4rem;font-weight:400}
 .c-value{font-family:var(--serif);font-size:1.1rem;color:var(--ink);line-height:1.6}
 .c-value a{color:var(--ink);text-decoration:none;transition:color .2s}
 .c-value a:hover{color:var(--petro)}

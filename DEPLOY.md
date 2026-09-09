@@ -78,15 +78,19 @@ Pages-tilgang — det dekker e-post og DNS. Wranglers egen OAuth har
 ## Deploy til produksjon (live)
 
     cd ~/ClaudeCode/active/trygt-overvann-website
+    scripts/oppdater-datoer.sh      # sitemap <lastmod> + JSON-LD dateModified fra git-datoer (fra 09.09.2026)
     git add -A && git commit -m "oppdater nettside" && git push
     DIST=$(mktemp -d /tmp/tovw-dist.XXXXXX)
-    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' ~/ClaudeCode/active/trygt-overvann-website/ "$DIST"/
+    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' --exclude='scripts' ~/ClaudeCode/active/trygt-overvann-website/ "$DIST"/
     wrangler pages deploy "$DIST" --project-name=trygt-overvann-website --branch=main --commit-dirty=true
+
+Endrer du innholdet i en fil under `assets/`, må URL-en endres (`?v=dato` på
+styles.css, eller nytt filnavn) — kanten cacher 4 t uansett hva `_headers` sier.
 
 Kontrollér staging-mappa FØR opplasting — rsync-ekskluderingene er lange og
 lette å brekke ved redigering:
 
-    for f in DEPLOY.md README.md CLAUDE.md AGENTS.md tasks .git; do
+    for f in DEPLOY.md README.md CLAUDE.md AGENTS.md tasks scripts .git; do
       [ -e "$DIST/$f" ] && echo "  LEKKASJE: $f" || echo "  ok, ikke med: $f"
     done
 
@@ -97,7 +101,7 @@ Staging-mappa lages med `mktemp -d` framfor `rm -rf` paa en fast sti: bash-portv
 blokkerer `rm -rf`, og en fersk mappe kan uansett ikke arve rester fra forrige deploy.
 
 ## Viktig
-- Internfiler (DEPLOY.md, README.md, CLAUDE.md, AGENTS.md, tasks/, .gitignore, .wrangler) ekskluderes i rsync — skal ikke ut på web.
+- Internfiler (DEPLOY.md, README.md, CLAUDE.md, AGENTS.md, tasks/, scripts/, .gitignore, .wrangler) ekskluderes i rsync — skal ikke ut på web.
 - _redirects, _headers, 404.html, sitemap.xml, robots.txt og llms.txt MÅ være med.
 - Ikke skru på git-auto-deploy i Cloudflare igjen.
 - Vises ikke en deploy: purge via trygtovervann.no-sonen (Caching, Purge Everything) — og si fra, da ligger det trolig en Cache Rule som overstyrer _headers.
