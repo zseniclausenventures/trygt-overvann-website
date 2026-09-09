@@ -32,6 +32,49 @@ Merk: dette er en ANNEN legitimasjon enn Cloudflare-tokenet i macOS Keychain
 (`trygtovervann-cf-token`). Det tokenet dekker e-post og DNS, ikke Pages.
 Tidligere notater påsto at wrangler manglet Pages-tilgang; det stemmer ikke.
 
+## Custom domains (Pages) — og token-fella som ser ut som stengt API
+
+Begge vertsnavn er aktive per 09.09.2026:
+
+    trygtovervann.no        active
+    www.trygtovervann.no    lagt til 09.09.2026
+
+**Wrangler har INGEN kommando for dette** — `wrangler pages` har ikke noe
+`domain`-underemne. Bruk API-et:
+
+    ACC=a883a1ff61882fbcf8756f078097748f
+    wrangler whoami >/dev/null            # fornyer OAuth-tokenet
+    TOK=$(grep -m1 '^oauth_token' ~/.wrangler/config/default.toml | sed 's/.*= *"//; s/"$//')
+    { printf 'header = "Authorization: Bearer %s"\n' "$TOK"
+      printf 'header = "Content-Type: application/json"\n'
+      printf 'data = "{\\"name\\":\\"www.trygtovervann.no\\"}"\n'
+    } | curl --config - -s -X POST \
+      "https://api.cloudflare.com/client/v4/accounts/$ACC/pages/projects/trygt-overvann-website/domains"
+
+Bytt `-X POST` mot ingenting for aa LISTE domener, og mot `-X DELETE` med
+`/domains/<navn>` for aa fjerne ett. Sertifikatet kommer av seg selv naar DNS
+alt peker paa Pages; www svarte 200 innen 20 sekunder.
+
+🔴 **Tokenet sendes via `curl --config -` fra stdin, aldri som argument.**
+`printf` er en shell-builtin, saa verdien naar hverken argv, `ps` eller
+shell-historikken.
+
+🔴 **DET FINNES TO wrangler-configfiler, og den ene er doed:**
+
+| Fil | Tilstand |
+|---|---|
+| `~/.wrangler/config/default.toml` | **LEVENDE** — fornyes ved hver wrangler-kjoering |
+| `~/Library/Preferences/.wrangler/config/default.toml` | doed kopi, utloept 03.06.2026 |
+
+Bruker du feil fil, svarer API-et `10000 Authentication error` — nøyaktig
+samme feil som et token uten rettigheter. Det fikk SEO-revisjonen 08.09 til aa
+konkludere at «ingen av tokenene slipper inn paa API-et» og at www-fiksen
+krevde dashbordet. Den konklusjonen var feil.
+
+Merk ogsaa at Keychain-tokenet `trygtovervann-cf-token` **ikke** har
+Pages-tilgang — det dekker e-post og DNS. Wranglers egen OAuth har
+`pages (write)`; sjekk med `wrangler whoami`.
+
 ## Deploy til produksjon (live)
 
     cd ~/ClaudeCode/active/trygt-overvann-website

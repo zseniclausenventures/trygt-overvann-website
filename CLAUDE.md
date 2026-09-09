@@ -132,8 +132,11 @@ To ting var oedelagt i prod uten at noen visste det:
    Klimatilpasning-seksjonen paa forsiden brukte regelen uten aa overstyre
    den, og `.split-img` har ingen reservefarge — saa halve seksjonen sto tom.
    Bildet er hentet fra `~/Backups/nettside-arkiv-2026-08-03/`.
-2. 🔴 **www.trygtovervann.no svarer HTTP 522 — GJENSTAAR.** DNS er riktig;
-   Pages-prosjektet mangler `www` i custom domains. Krever dashbordet.
+2. ✅ **www.trygtovervann.no LOEST 09.09.2026.** `www` er lagt inn som custom
+   domain paa Pages-prosjektet via API-et, og svarer 200 paa alle testede ruter.
+   Innhold er identisk med apex (verifisert med diff, ikke hash — se lærdommen
+   om Cloudflares e-postobfuskering), `canonical` paa www peker til apex, og
+   sitemap lister kun apex. Duplikat-innhold er dermed haandtert.
 
 ### Bilder: <img>, ikke background-image
 

@@ -250,7 +250,11 @@ ikke `ø`. **Det finnes ingen ubrukte assets.**
 
 **Bolk A — brutt i prod**
 1. ~~`Flom under bro.webp` 404 på forsiden~~ — RETTET 08.09.
-2. 🔴 **www-vertsnavnet → 522. GJENSTÅR, krever Bengt.** DNS er allerede
+2. ✅ **www-vertsnavnet → LØST 09.09.2026 via API-et, ikke dashbordet.**
+   (Opprinnelig ført opp som «krever Bengt» — se DEPLOY.md om de to
+   wrangler-configfilene. Opprinnelig tekst under.)
+
+   🔴 **www-vertsnavnet → 522. GJENSTÅR, krever Bengt.** DNS er allerede
    riktig (`www` CNAME-er til Pages-prosjektet, proxied). Feilen er at
    Pages-prosjektet ikke har `www.trygtovervann.no` i lista over custom
    domains, så Pages avviser Host-headeren. Wrangler 4.71 har ingen
