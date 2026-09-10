@@ -24,7 +24,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-09-07)
+## SEO-status (sist oppdatert 2026-09-09)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -40,7 +40,7 @@ Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deplo
 
 Gjenstår fra auditen:
 - M1 (utenfor repo, HØYESTE): Google Business Profile + NAP-konsistente siteringer (Proff/1881/Gulesider). Navnespørsmålet som blokkerte er avklart 02.09 — se «Navnebruk». Gjenstår: adressemodus (GBP krever ekte adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4), og selve opprettelsen.
-- Lav prioritet: 404.html noindex, render-blocking Google Fonts, background-image URL-encoding.
+- Lav prioritet: render-blocking Google Fonts. (404 noindex og URL-encoding er gjort.)
 
 Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
 
@@ -181,15 +181,33 @@ nytt filnavn, `styles.css` har `?v=AAAAMMDD` som skal bumpes ved CSS-endring.
 - Inline broedtekstbilder oppga alle `width="1200" height="800"` uansett
   faktisk fil, og tre av dem er portrett. Rettet.
 
-### Gjenstaar fra revisjonen (bolk C-F)
+### Bolk C-F GJORT 09.09.2026 (commit bdc4e7d, deployet og verifisert live)
 
-Maaling foerst: **ingen Search Console, ingen Bing, ingen analytics** —
-verken meta-tag eller DNS TXT. Alt som fikses maales blindt til det er paa
-plass. Deretter: sitemap `lastmod` staar fortsatt paa 2026-04-18 og ingen
-side har `dateModified` (det finnes ingen `WebPage`-node aa henge den paa);
-entiteten er splittet i `#organization` og `#localbusiness`; Person-noden
-har ingen `sameAs`; /om/ og /tjenester/ har h1 + kun én h2; åtte titler er
-over 60 tegn; og:image er portrett paa fire sider. Se rapporten.
+- **Datoer:** alle 12 indekserbare sider har en side-node (`WebPage`, eller
+  eksisterende `AboutPage`/`ContactPage`/`CollectionPage`) med `@id …#webpage`,
+  `isPartOf` → `#website`, `datePublished` 2026-04-18 og `dateModified`.
+  **`scripts/oppdater-datoer.sh` setter `dateModified` og sitemap `<lastmod>`
+  fra git-datoen per fil** (ucommittert = i dag) og er foerste steg i
+  DEPLOY.md-oppskriften. Kjoer det — ellers lyver datoene igjen.
+- **Én entitet:** `#localbusiness` er borte. `#organization` har
+  `@type: ["Organization","ProfessionalService"]` paa alle sider;
+  `hasOfferCatalog` og `openingHoursSpecification` ligger kun paa forsiden.
+- **Overskrifter:** /om/ har h2 «Om firmaet», «Verdier», «Faglig ekspertise»
+  (c-label-etikettene er `<h2 class="c-label">`, visuelt uendret — `.c-label`
+  fikk `font-weight:400`). /tjenester/ og forsiden: tjenestenavn i kortene er
+  `<h3 class="svc-name">`, /tjenester/ fikk h2 «Alle tjenester».
+- **og:image:** 9 JPEG 1200×630 i `assets/og/` (sips fra webp-originalene,
+  midtbeskaaret), med `og:image:type/width/height/alt` og `twitter:image:alt`.
+  Nye filnavn — ingen edge-cache-kollisjon.
+- **Titler:** 8 kortet til ≤60 tegn (forsiden 58, tjenester 55, for-advokater
+  55, breeam 54, havnivaa 59, klima 52, uavhengig 59, va 50). og:/twitter:title
+  speiler `<title>`.
+- `lang="nb"`, `inLanguage: "nb-NO"`, 404.html `noindex,follow`, `_headers`
+  har kommentar om at kanten overstyrer TTL.
+
+**Gjenstaar og krever Bengt:** Search Console + Bing (DNS TXT), Person
+`sameAs` (valg), utbygging av /om/ og /tjenester/ (fagstoff), COWI-spoersmaalet
+over, GBP. `/OM/` med store bokstaver gir 200 — Pages har ingen bryter for det.
 
 ## Navnebruk (besluttet 02.09.2026, skjerpet 07.09.2026)
 
