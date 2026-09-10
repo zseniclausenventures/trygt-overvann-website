@@ -115,6 +115,31 @@ Det som skader er ikke konflikten — den haandteres ved aa takke nei. Det er
 **rekkefoelgen**: at motparten oppdager ansettelsen etter aa ha lest nettsida.
 Da handler saken om hvorfor det sto som det sto.
 
+**Presisering som avgjoer tyngden i dette (utledet 09.09):** det finnes to
+slags sakkyndige, og Bengt er stort sett den andre.
+
+- *Rettsoppnevnt sakkyndig:* habilitetsreglene gjelder formelt — tvisteloven
+  § 25-3 viser til domstolloven, der § 108 er sekkebestemmelsen: «saeregne
+  omstendigheter … skikket til aa svekke tilliten til hans uhildethet». Merk
+  standarden: den spoer ikke om han VAR paavirket, men om omstendighetene er
+  EGNET TIL aa svekke tilliten. En tilsynelatende-standard.
+- *Privat engasjert sakkyndig* — som er det /for-advokater/ selger, oppdrag
+  fra advokater og forsikringsselskap. Her finnes **ingen formell
+  habilitetsregel** som kan diskvalifisere ham.
+
+Det siste hoeres beskyttende ut, men er det motsatte: finnes det ingen regel
+som diskvalifiserer, finnes det heller ingen prosedyre som RENVASKER. Retten
+staar fritt i bevisvurderingen. Da er tilknytning og troverdighet ikke et
+formelt spoersmaal ved siden av saken — de er hele spoersmaalet om hva
+rapporten er verdt.
+
+Derfor er den kommersielle risikoen stoerre enn den rettslige, og den ligger
+i KANALEN, ikke i saken: advokaten som engasjerte ham blir overrumplet i
+retten foran sin egen klient. Han ringer ikke igjen, og advokater snakker
+sammen. Bengt er ikke jurist paa dette punktet, og beslutningen boer tas med
+en advokat han allerede jobber med — saerlig ordlyden i habilitetserklaeringen,
+som i dag bare dekker TIDLIGERE bindinger.
+
 Ikke endre «100 % Uavhengig», habilitetssvaret eller GBP-planen uten at Bengt
 har tatt denne beslutningen.
 
