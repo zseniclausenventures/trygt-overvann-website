@@ -24,7 +24,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-09-09)
+## SEO-status (sist oppdatert 2026-09-11)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -38,9 +38,27 @@ Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deplo
 
 - Navn/person/pris-rydding (07.09.2026, DEPLOYET til prod samme dag): ™ paa alle 163 navneforekomster i utrullede filer, logolenken i toppmenyen rettet paa alle 13 sider, sivilingenioer→ingenioer, 15+→17+ aar, konsul-vervet ut, alle priser ut. Se «Navnebruk» og «Personinformasjon og priser».
 
-Gjenstår fra auditen:
-- M1 (utenfor repo, HØYESTE): Google Business Profile + NAP-konsistente siteringer (Proff/1881/Gulesider). Navnespørsmålet som blokkerte er avklart 02.09 — se «Navnebruk». Gjenstår: adressemodus (GBP krever ekte adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4), og selve opprettelsen.
-- Lav prioritet: render-blocking Google Fonts. (404 noindex og URL-encoding er gjort.)
+Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
+
+1. **Search Console + Bing Webmaster (HØYEST, blokkerer måling).** Verifiser
+   trygtovervann.no via DNS TXT og send inn `/sitemap.xml`. Verifisert 11.09:
+   sonens eneste TXT er fortsatt SPF — ingen verifisering finnes. Til dette er
+   på plass måles **ingenting** av ytelses- og schema-arbeidet 08.–09.09.
+2. 🔴 **COWI-beslutningen** — se «AAPENT» under. Den gater M1: en Business
+   Profile er langt mer synlig enn LinkedIn-lenken som alt ble utelatt av
+   samme hensyn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
+3. **Person `sameAs`** — LinkedIn (kolliderer med punkt 2), Proff-rolle, eller
+   ingen. Person-noden har i dag null ekstern forankring.
+4. **M1: Google Business Profile + NAP-siteringer** (Proff/1881/Gulesider).
+   Navnespørsmålet er avklart 02.09. Gjenstår adressemodus — GBP krever ekte
+   adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4
+   — og selve opprettelsen. Gated på punkt 2.
+
+Lav prioritet: render-blocking Google Fonts (tre familier, ~870 ms på LCP-stien
+målt 08.09), utbygging av /om/ og /tjenester/ med fagstoff (krever Bengt),
+`.svc-arr`/`.split-eyebrow`-kontrast, sticky `.aside-block`, wrangler 4.71 →
+4.129. (404 noindex, URL-encoding, titler, `lang="nb"`, datoer og og-bilder er
+gjort — se «Bolk C-F GJORT».)
 
 Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
 
