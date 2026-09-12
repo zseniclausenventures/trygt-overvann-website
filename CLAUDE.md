@@ -252,6 +252,78 @@ nytt filnavn, `styles.css` har `?v=AAAAMMDD` som skal bumpes ved CSS-endring.
 `sameAs` (valg), utbygging av /om/ og /tjenester/ (fagstoff), COWI-spoersmaalet
 over, GBP. `/OM/` med store bokstaver gir 200 — Pages har ingen bryter for det.
 
+## Værvarsel og farevarsler (12.09.2026)
+
+`/vaervarsel/` viser ti døgn og alle aktive farevarsler for der den besøkende
+er. En kompakt boks med tre døgn og faretrekanter står i sidestolpen på de sju
+tjenestesidene og lenker dit. **`/for-advokater/` er bevisst holdt utenfor** —
+den siden selger sakkyndigtjenester, og en levende værboks der leses som pynt
+på feil sted.
+
+### Kilder — fire, ikke én
+
+| Kilde | Hva | Merk |
+|---|---|---|
+| MET `locationforecast/2.0/compact` | ti døgn (85 punkter, T+0 → T+9d23t) | timevis i ~2 døgn, så 6-timers |
+| MET `metalerts/2.0/current.json` | styrtregn, regnflom, stormflo, vind, torden, skogbrann | `geographicDomain=land` |
+| NVE `flood/v1.0.6` | flom i vassdrag | slår opp på KOMMUNENUMMER, ikke koordinat |
+| NVE `landslide/v1.0.6` | jordskredfare | samme skjema som flom |
+| Kartverket `kommuneinfo/v1/punkt` | koordinat → kommunenummer + stedsnavn | derfor dette kallet i det hele tatt |
+
+🔴 **MET varsler IKKE flom i vassdrag eller jordskred.** Det gjør NVE. Tror du
+MetAlerts dekker alt, mangler du nettopp de varslene som ligger nærmest
+varemerket. NVE-nivå 1 er «grønt nivå» og betyr INGEN varsel — filtreres bort,
+ellers fylles siden av grønne ikke-varsler.
+
+### Mellomleddet — prosjektets første serverkode
+
+`functions/api/vaer.js` gjør alle fire kallene og leverer ett normalisert svar,
+så nettleseren gjør ett kall og kjenner ingen av kildene. Se DEPLOY.md
+«Serverkode: functions/».
+
+- **Posisjon** fra `request.cf.latitude/longitude` (Cloudflares egen stedfesting,
+  gratisplanen). Ingen posisjonsdialog i nettleseren. Avrundes til to desimaler
+  (~1 km). Utenfor Norge eller ukjent: Bergen.
+- 🔴 **Den besøkendes IP sendes aldri videre.** Kildene ser bare en avrundet
+  koordinat og et kommunenummer. Ingenting lagres, ingen informasjonskapsel.
+  IP-stedfesting er grov og kan bomme — bak VPN ga en maskin i Bergen «Oslo».
+  Derfor står stedsnavnet ALLTID synlig, og sida sier at stedet er anslått.
+- **Cache API krever nøkkel på eget domene.** En fremmed URL som nøkkel virker
+  ikke; nøkkelen bygges som `/__vaer-cache/<url>` på sidens eget opphav.
+- `?lat=&lon=` overstyrer posisjon (gjør endepunktet testbart med curl).
+  `?test=1` henter MET `test_all.json` — 21 fiktive varsler i alle tre nivåer,
+  også gjennom sida: `/vaervarsel/?test=1`. Uten det ser man aldri
+  varselgrensesnittet på en rolig dag. Varslene er merket «TEST TEST TEST» av
+  MET selv, og canonical peker til sida uten parameter.
+- MET sender samme hendelse som flere CAP-meldinger når den dekker flere
+  polygoner — duplikatene fjernes på `(type, område, fra, nivå)`.
+
+### Ting som ble målt, ikke antatt
+
+- 🔴 **`hidden` på boksen ga layout-hopp.** Første utgave lå som `hidden` i HTML
+  og ble synlig fra JS — 0 → 243 px, +0,025 CLS. Skjelettet ligger nå i HTML med
+  `min-height:243px` på `.vaer-boks`, og JS bytter bare innholdet. Differansen
+  mot prod er nå 0,0008. **Endrer du boksens høyde, endre `min-height` med den.**
+- **LCP er uendret** (+56/+8/−20 ms mot prod, 4× CPU / 1,6 Mbit / 150 ms).
+  Kallet starter først 1,8–2,3 s inn, etter `load` — altså etter LCP. Behold
+  `window.addEventListener('load', …)`; flyttes kallet tidligere, konkurrerer
+  det med heroen.
+- **Kontrast:** all tekst i widgeten bruker `--ink2` (11:1), ikke `--ink3`.
+  🔴 `--ink3` på hvitt er 3,95:1 og **stryker på WCAG AA** — den brukes som
+  etikettfarge over hele nettstedet (`.section-eyebrow`, `.svc-related-title`,
+  `.breadcrumb`, `.contact-detail` m.fl.). Det er en egen, uavklart sak; widgeten
+  gjør den ikke større. Nivåfargene er flater med mørk kontur, og nivået står
+  ALLTID i ord ved siden av, så fargen er aldri eneste bærer av betydningen.
+- Symbolene er innebygd SVG i nettstedets formspråk, ikke Yrs ikoner — ~50
+  `symbol_code`-verdier grupperes i ti former. Nyansen «lett/kraftig» går tapt i
+  ikonet, men står i millimeterkolonnen ved siden av.
+
+### Lisens
+
+MET-data er CC BY 4.0 og **krever** kildehenvisning. Den står nederst på
+`/vaervarsel/` med lenke til lisensen, yr.no og varsom.no, og sier at sida
+gjengir de offisielle varslene — ikke at den erstatter dem. Fjern den ikke.
+
 ## Navnebruk (besluttet 02.09.2026, skjerpet 07.09.2026)
 
 Gjennomgaende merkenavn er **«Trygt Overvann™»** — med varemerkesymbol, uten AS.

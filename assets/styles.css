@@ -243,6 +243,60 @@ a{color:inherit}
 .om-val-title{font-family:var(--serif);font-size:1.05rem;color:var(--ink);margin-bottom:.3rem}
 .om-val-desc{font-size:.85rem;color:var(--ink2);line-height:1.7}
 
+/* VARSEL — værvarsel og farevarsler (MET + NVE) */
+/* Nivåfargene brukes bare som FLATE (trekant, stripe), aldri som tekstfarge.
+   Nivået står alltid i ord ved siden av, så fargen er aldri eneste bærer. */
+:root{--niva-gul:#c08800;--niva-oransje:#d4600f;--niva-rod:#a51d2a}
+
+/* Sidestolpeboks */
+.vaer-boks{display:block;background:var(--white);border:1px solid var(--rule);padding:1.5rem;margin-bottom:1.25rem;text-decoration:none;color:inherit;transition:border-color .2s;min-height:243px}
+.vaer-boks:hover{border-color:var(--petro)}
+.vaer-boks-tittel{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:.9rem}
+.vaer-tredogn{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.vaer-dag{background:var(--white);padding:.7rem .35rem;text-align:center;min-height:98px}
+.vaer-dag-navn{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.vaer-ikon{width:26px;height:26px;margin:.4rem auto .3rem;display:block}
+.vaer-temp{font-family:var(--serif);font-size:1.15rem;color:var(--ink);line-height:1.1}
+.vaer-mm{font-family:var(--mono);font-size:.55rem;color:var(--petro2);margin-top:.25rem;min-height:.8rem}
+.vaer-mm.tort{color:var(--ink2)}
+.vaer-boks-varsler{margin-top:.9rem;display:flex;flex-direction:column;gap:.4rem}
+.vaer-flagg{display:flex;align-items:flex-start;gap:.45rem;font-size:.76rem;color:var(--ink2);line-height:1.45}
+.vaer-flagg svg{width:15px;height:15px;flex:0 0 15px;margin-top:.12rem}
+.vaer-boks-lenke{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--rule);font-size:.78rem;color:var(--petro)}
+.vaer-boks[hidden]{display:none}
+
+/* Sidevisning */
+.vaer-hode{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.75rem;border-bottom:1px solid var(--rule);padding-bottom:.75rem;margin-bottom:1.5rem}
+.vaer-sted{font-family:var(--serif);font-size:1.5rem;color:var(--ink)}
+.vaer-stempel{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.vaer-varsel{background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--rule);padding:1.5rem;margin-bottom:1rem}
+.vaer-varsel.gul{border-left-color:var(--niva-gul)}
+.vaer-varsel.oransje{border-left-color:var(--niva-oransje)}
+.vaer-varsel.rod{border-left-color:var(--niva-rod)}
+.vaer-varsel-topp{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.5rem}
+.vaer-varsel-topp svg{width:19px;height:19px;flex:0 0 19px}
+.vaer-varsel-navn{font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
+.vaer-merke{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--rule);padding:.18rem .45rem}
+.vaer-varsel-meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin-bottom:.9rem}
+.vaer-varsel dt{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-top:.8rem}
+.vaer-varsel dd{font-size:.9rem;color:var(--ink2);line-height:1.7;margin-top:.2rem}
+.vaer-rolig{background:var(--paper);border-left:3px solid var(--petro);padding:1.25rem 1.5rem;font-size:.92rem;color:var(--ink2)}
+
+/* Ti døgn */
+.vaer-tidogn{border-top:1px solid var(--rule)}
+.vaer-rad{display:grid;grid-template-columns:5.5rem 2.4rem 1fr 5rem 5rem;align-items:center;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--rule)}
+.vaer-rad-dag{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.vaer-rad .vaer-ikon{margin:0;width:24px;height:24px}
+.vaer-rad-temp{font-family:var(--serif);font-size:1.15rem;color:var(--ink)}
+.vaer-rad-temp small{font-family:var(--sans);font-size:.8rem;color:var(--ink3);margin-left:.35rem}
+.vaer-rad-tall{font-family:var(--mono);font-size:.72rem;color:var(--ink2);text-align:right}
+.vaer-rad-tall.tort{color:var(--ink2)}
+.vaer-stolpe{height:3px;background:var(--rule);position:relative}
+.vaer-stolpe i{position:absolute;inset:0 auto 0 0;background:var(--petro2)}
+.vaer-kilde{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--rule)}
+.vaer-kilde a{color:var(--petro)}
+.vaer-feil{font-size:.9rem;color:var(--ink2)}
+
 /* MEDIA */
 @media(max-width:1024px){
   .hero-content{gap:2rem}
@@ -268,6 +322,9 @@ a{color:inherit}
   .footer-desc{max-width:100%}
   .svc-body,.svc-layout{grid-template-columns:1fr}.svc-card-contact{position:static}
   .contact-grid,.om-grid{grid-template-columns:1fr}
+  .vaer-rad{grid-template-columns:4.5rem 2rem 1fr;row-gap:.2rem}
+  .vaer-rad .vaer-rad-tall{grid-column:3;text-align:left;font-size:.68rem}
+  .vaer-stolpe{display:none}
   .svc-hero{height:clamp(220px,30vw,360px)}
   .nav-links a,.footer-links a{padding:.5rem 0;display:inline-block;min-height:44px;line-height:44px}
   .btn-primary,.btn-ghost,.btn-hero-primary,.btn-hero-ghost,.nav-cta{min-height:48px;padding:.85rem 2rem}

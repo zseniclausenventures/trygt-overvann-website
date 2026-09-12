@@ -28,9 +28,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="/assets/styles.css?v=20260909" as="style">
+<link rel="preload" href="/assets/styles.css?v=20260912" as="style">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=20260909">
+<link rel="stylesheet" href="/assets/styles.css?v=20260912">
 <script type="application/ld+json">{
 "@context": "https://schema.org",
 "@type": [
@@ -233,7 +233,7 @@
 "@id": "https://trygtovervann.no/#organization"
 },
 "datePublished": "2026-04-18",
-"dateModified": "2026-09-09",
+"dateModified": "2026-09-12",
 "inLanguage": "nb-NO"
 }</script>
 </head>
@@ -314,7 +314,7 @@
         <ul>
           <li>Tomten ligger i eller nær NVEs aktsomhetsområder for flom</li>
           <li>Kommunen stiller krav om klimatilpasset overvannshåndtering</li>
-          <li>Et eksisterende område har gjentatte problemer med styrtregn</li>
+          <li>Et eksisterende område har gjentatte problemer med <a href="/vaervarsel/">styrtregn</a></li>
           <li>Prosjektet har <a href="/tjenester/breeam-nor/">BREEAM</a>-, LEED- eller FutureBuilt-ambisjoner</li>
           <li>Kommunen planlegger en overordnet klimatilpasningsplan</li>
         </ul>
@@ -327,6 +327,9 @@
       </section>
     </div>
     <aside class="svc-sidebar">
+      <!-- Tegnes av /assets/vaer.js; skjuler seg selv hvis varselet ikke er
+           tilgjengelig. Høyden er reservert så oppsettet ikke hopper. -->
+      <a class="vaer-boks" href="/vaervarsel/" aria-label="Værvarsel og farevarsler"><p class="vaer-boks-tittel">Varsel</p><div class="vaer-tredogn"><div class="vaer-dag"></div><div class="vaer-dag"></div><div class="vaer-dag"></div></div><span class="vaer-boks-lenke">&nbsp;</span></a>
       <div class="svc-card-contact">
         <h3>Kontakt oss</h3>
         <p>Raskt og faglig fundert svar &mdash; uten forpliktelser.</p>
@@ -383,4 +386,5 @@
   </div>
 </footer>
 <script src="/assets/nav.js" defer></script>
+<script src="/assets/vaer.js?v=20260912" defer></script>
 </body></html>

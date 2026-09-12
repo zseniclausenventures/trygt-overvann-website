@@ -106,6 +106,24 @@ blokkerer `rm -rf`, og en fersk mappe kan uansett ikke arve rester fra forrige d
 - Ikke skru på git-auto-deploy i Cloudflare igjen.
 - Vises ikke en deploy: purge via trygtovervann.no-sonen (Caching, Purge Everything) — og si fra, da ligger det trolig en Cache Rule som overstyrer _headers.
 
+## Serverkode: `functions/`
+
+Fra 12.09.2026 er nettstedet ikke lenger helt statisk. `functions/api/vaer.js`
+er en Cloudflare Pages Function som henter værvarsel og farevarsler fra MET,
+NVE og Kartverket. Den ligger IKKE i rsync-ekskluderingene og blir derfor med
+i deployen automatisk — wrangler kompilerer den («Compiled Worker successfully»
+i utdataen). Mangler den linja, er funksjonen ikke med.
+
+🔴 `_redirects` har en catch-all `/* /404.html 404`. Den slår IKKE ut
+funksjonen — verifisert på preview 12.09.2026 — men det er den første tingen å
+teste hvis `/api/vaer` plutselig gir 404-sida.
+
+Funksjonen kan prøves på preview før produksjon:
+
+    wrangler pages deploy "$DIST" --project-name=trygt-overvann-website \
+      --branch=tovw-preview --commit-dirty=true
+    curl -s 'https://tovw-preview.trygt-overvann-website.pages.dev/api/vaer?lat=60.39&lon=5.32'
+
 ## Etter deploy — maskinell verifisering mot LIVE
 
 Deployen svarer med et preview-alias (`https://<hash>.trygt-overvann-website.pages.dev`).
@@ -115,10 +133,15 @@ Det er ikke produksjon. Verifiser alltid mot trygtovervann.no.
              /tjenester/overvannsradgivning/ /tjenester/va-prosjektering/ \
              /tjenester/klimatilpasning/ /tjenester/uavhengig-kontroll/ \
              /tjenester/havnivaastigning/ /tjenester/eu-taksonomi-crva/ \
-             /tjenester/breeam-nor/ /llms.txt /robots.txt /sitemap.xml; do
+             /tjenester/breeam-nor/ /vaervarsel/ /llms.txt /robots.txt /sitemap.xml; do
       printf "%-42s %s\n" "$u" "$(curl -s -o /dev/null -w '%{http_code}' https://trygtovervann.no$u)"
     done
     curl -s -o /dev/null -w '/utbygger: %{http_code} -> %{redirect_url}\n' https://trygtovervann.no/utbygger
+
+Værvarselet har et eget endepunkt som må svare med JSON, ikke med 404-sida:
+
+    curl -s https://trygtovervann.no/api/vaer | head -c 200; echo
+    curl -s -o /dev/null -w 'døgn: %{http_code}\n' 'https://trygtovervann.no/api/vaer?lat=60.39&lon=5.32'
 
 🔴 **Kildesøk er ikke nok.** Navneryddingen 02.09 ble erklært ferdig og
 verifisert mot live, men logolenken sto likevel med «AS» på alle 13 sidene i
