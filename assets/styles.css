@@ -261,10 +261,35 @@ a{color:inherit}
 
 /* Værtypen farger boksen. Lyse bunner (sol, snø) må ha mørk tekst — derfor
    settes ALLE fem tokenene per variant, ikke bare bakgrunnen. */
-.vaer-boks.v-sol{--vb-bunn:#d9a52c;--vb-tekst:#241a05;--vb-dempet:#4a3a12;--vb-strek:rgba(36,26,5,.28);--vb-ikon:#4a3a12}
+.vaer-boks.v-sol{--vb-bunn:#f2d01c;--vb-tekst:#241a05;--vb-dempet:#4a3a12;--vb-strek:rgba(36,26,5,.3);--vb-ikon:#4a3a12}
 .vaer-boks.v-skyet{--vb-bunn:#4c5457;--vb-tekst:#fff;--vb-dempet:rgba(255,255,255,.82);--vb-strek:rgba(255,255,255,.3);--vb-ikon:#fff}
 .vaer-boks.v-regn{--vb-bunn:#1b4d5e;--vb-tekst:#fff;--vb-dempet:rgba(255,255,255,.82);--vb-strek:rgba(255,255,255,.3);--vb-ikon:#fff}
 .vaer-boks.v-sno{--vb-bunn:#eef1f3;--vb-tekst:var(--ink);--vb-dempet:var(--ink2);--vb-strek:#c6ccd0;--vb-ikon:var(--petro)}
+
+/* Klarvær om natten. Stjernene er radial-gradienter — ingen bildefil, ingen
+   ekstra forespørsel. Cellene må være gjennomsiktige for at de skal synes,
+   derfor skillelinjer i stedet for husets gap:1px-rutenett. */
+.vaer-boks.v-natt{--vb-bunn:#080c14;--vb-tekst:#fff;--vb-dempet:rgba(255,255,255,.82);--vb-strek:rgba(255,255,255,.26);--vb-ikon:#fff;
+  background-image:
+    radial-gradient(1.7px 1.7px at 13% 19%,rgba(255,255,255,.95),transparent),
+    radial-gradient(1.1px 1.1px at 28% 9%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1.4px 1.4px at 42% 27%,rgba(255,255,255,.8),transparent),
+    radial-gradient(1px 1px at 57% 8%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1.9px 1.9px at 71% 21%,rgba(255,255,255,.9),transparent),
+    radial-gradient(1.1px 1.1px at 86% 12%,rgba(255,255,255,.62),transparent),
+    radial-gradient(1.3px 1.3px at 94% 34%,rgba(255,255,255,.72),transparent),
+    radial-gradient(1px 1px at 8% 46%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1.6px 1.6px at 22% 63%,rgba(255,255,255,.85),transparent),
+    radial-gradient(1.1px 1.1px at 49% 55%,rgba(255,255,255,.55),transparent),
+    radial-gradient(1.4px 1.4px at 64% 72%,rgba(255,255,255,.75),transparent),
+    radial-gradient(1px 1px at 79% 58%,rgba(255,255,255,.5),transparent),
+    radial-gradient(1.7px 1.7px at 91% 79%,rgba(255,255,255,.88),transparent),
+    radial-gradient(1.1px 1.1px at 35% 88%,rgba(255,255,255,.58),transparent),
+    radial-gradient(1.3px 1.3px at 6% 82%,rgba(255,255,255,.7),transparent),
+    radial-gradient(1px 1px at 73% 93%,rgba(255,255,255,.5),transparent)}
+.vaer-boks.v-natt .vaer-tredogn{background:transparent;gap:0}
+.vaer-boks.v-natt .vaer-dag{background:transparent}
+.vaer-boks.v-natt .vaer-dag+.vaer-dag{border-left:1px solid var(--vb-strek)}
 
 /* Over hero-bildet, øverst til høyre. Solid bunn, ikke halvgjennomsiktig:
    da er kontrasten den samme uansett hva fotografiet viser under. */

@@ -66,6 +66,27 @@
 
   var NIVANAVN = { gul: 'Gult nivå', oransje: 'Oransje nivå', rod: 'Rødt nivå' };
 
+  // Bakgrunnsfargen leses fra RÅ symbol_code, ikke fra ikonnavnet: ikonet slår
+  // sammen «fair» (lettskyet, sol dominerer) og «partlycloudy» (delvis skyet),
+  // men fargen skal skille dem — den ene er sol, den andre er overskyet.
+  function fargeFor(kode) {
+    var c = String(kode || '');
+    if (c.indexOf('snow') > -1) return 'v-sno';
+    if (/rain|sleet|thunder/.test(c)) return 'v-regn';
+    if (c.indexOf('clearsky') === 0 || c.indexOf('fair') === 0) {
+      return c.indexOf('_night') > -1 ? 'v-natt' : 'v-sol';
+    }
+    return 'v-skyet'; // partlycloudy, cloudy, fog
+  }
+
+  function ikon(kode, klasse) {
+    var n = ikonNavn(kode);
+    return '<svg class="' + (klasse || 'vaer-ikon') + '" viewBox="0 0 24 24" role="img" aria-label="' +
+      TEKST[n] + '">' + IKON[n] + '</svg>';
+  }
+
+  var NIVANAVN = { gul: 'Gult nivå', oransje: 'Oransje nivå', rod: 'Rødt nivå' };
+
   // Bakgrunnsfarge etter været i dag: gul sol, grå skyet, blå regn, hvit snø.
   var FARGE = {
     sol: 'v-sol', maane: 'v-sol',
@@ -132,7 +153,7 @@
       ? '<span class="vaer-flagg"><span style="width:15px"></span><span>+ ' + (d.farevarsler.length - 2) + ' varsler til</span></span>'
       : '';
 
-    boks.className = boks.className.replace(/\s*\bv-\w+/g, '') + ' ' + FARGE[ikonNavn(d.dogn[0].symbol)];
+    boks.className = boks.className.replace(/\s*\bv-\w+/g, '') + ' ' + fargeFor(d.dogn[0].symbol);
     boks.innerHTML =
       '<p class="vaer-boks-tittel">Varsel for ' + trygg(d.sted.navn) + '</p>' +
       '<div class="vaer-tredogn">' + tre + '</div>' +

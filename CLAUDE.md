@@ -276,19 +276,26 @@ forsvinner den eneste synlige inngangen igjen.
 
 ### Værtypen farger boksen (12.09.2026)
 
-Boksen får bakgrunnsfarge etter symbolet **i dag**: gul ved klarvær (`v-sol`),
-grå ved skyet/tåke (`v-skyet`), blå ved regn/sludd/torden (`v-regn`), hvit ved
-snø (`v-sno`). Gjelder både forsidens hero-boks og sidestolpen.
+Boksen får bakgrunnsfarge etter symbolet **i dag**: solgul `#f2d01c` ved
+klarvær om dagen (`v-sol`), **stjernehimmel på nesten svart** ved klarvær om
+natten (`v-natt`), grå ved skyet/tåke (`v-skyet`), blå ved regn/sludd/torden
+(`v-regn`), hvit ved snø (`v-sno`). Gjelder både hero-boksen og sidestolpen.
+
+🔴 **Fargen leses fra rå `symbol_code`, ikke fra ikonnavnet.** Ikonsettet slår
+sammen `fair` (lettskyet — sola dominerer) og `partlycloudy` (delvis skyet), men
+fargen skal skille dem: den ene er sol, den andre er overskyet. Bruk
+`fargeFor()`, ikke `ikonNavn()`.
+
+Stjernene i `v-natt` er 16 `radial-gradient`-prikker, ingen bildefil og ingen
+ekstra forespørsel. De krever gjennomsiktige dagceller, så varianten bruker
+`border-left` i stedet for husets `gap:1px`-rutenett — samme grunn som
+`.pa-bilde`.
 
 🔴 **Fargene settes som fem tokens, ikke som bakgrunn alene**: `--vb-bunn`,
 `--vb-tekst`, `--vb-dempet`, `--vb-strek`, `--vb-ikon`. Gul og hvit er LYSE
 bunner og krever mørk tekst — setter du bare bakgrunnen, blir hvit tekst på gul
-bunn usynlig. Alle fire målt: laveste kontrast 4,92:1 (gul), høyeste 9,71:1
-(snø). Legger du til en femte værtype, sett alle fem tokenene og mål.
-
-Klarvær om NATTEN gir også gul boks. Bengt ba om fire tilstander, og en egen
-nattfarge ville vært en femte han ikke har bedt om — men den ser rar ut i
-mørket, så den er verdt å ta opp.
+bunn usynlig. Alle fem målt: laveste kontrast 5,86:1 (grå), høyeste 13,09:1 (natt).
+Legger du til en sjette værtype, sett alle fem tokenene og mål.
 
 **Rapportagent-banneret er fjernet fra forsiden 12.09.2026** (Bengts beslutning).
 Det var en `.product-teaser`-seksjon nederst med amber knapp og «Gratis 14 dagers
@@ -296,11 +303,11 @@ trial». CSS-reglene er fjernet med den. Dermed er også det siste prisutsagnet 
 forsiden borte — se «Personinformasjon og priser». Lenka til rapportagenten.com i
 bunnteksten er også fjernet, fra alle 14 sider (12.09).
 
-🔴 **To forekomster står igjen, bevisst, til Bengt avgjør:** `sameAs` i
-Organization-noden på alle 14 sider (maskinlesbar eierskapsknytning, ikke en
-synlig lenke), og to setninger i brødteksten på /tjenester/overvannsradgivning/
-og /tjenester/va-prosjektering/ om at rapporter produseres med egenutviklet
-AI-teknologi.
+🔴 **ALLE henvisninger til Rapportagenten er fjernet 12.09.2026** på Bengts
+beslutning — banner, bunntekstlenke, `sameAs` i Organization-noden på alle 14
+sider, og to setninger i brødteksten på /tjenester/overvannsradgivning/ og
+/tjenester/va-prosjektering/. Null treff i utrullede filer.
+Ordrett innhold for reversering: memory `trygt-overvann-rapportagent-fjernet`.
 
 **`/for-advokater/` er bevisst holdt utenfor** — den siden selger
 sakkyndigtjenester, og en levende værboks der leses som pynt på feil sted.
