@@ -1,7 +1,9 @@
 # trygt-overvann-website
 
 Trygt Overvann™ sin offentlige nettside (trygtovervann.no). Varemerket drives av
-OhJoy Ventures AS. Statisk multi-side, ingen build.
+OhJoy Ventures AS. Multi-side uten build — men IKKE lenger helt statisk: fra
+12.09.2026 finnes `functions/api/vaer.js` (værvarsel). Se «Værvarsel og
+farevarsler» og DEPLOY.md.
 
 Deploy: git-auto-deploy er AV. Deploy skjer manuelt via wrangler — se DEPLOY.md for full instruks og den eksakte kommandoen.
 
@@ -24,7 +26,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-09-11)
+## SEO-status (sist oppdatert 2026-09-12)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -54,10 +56,23 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4
    — og selve opprettelsen. Gated på punkt 2.
 
+5. **`--ink3` stryker på WCAG AA** (funnet 12.09). 3,95:1 mot hvitt, brukt som
+   etikettfarge over HELE nettstedet: `.section-eyebrow`, `.svc-related-title`,
+   `.breadcrumb`, `.contact-detail`, `.hero-stat-lbl` m.fl. Værwidgeten unngår
+   den bevisst (bruker `--ink2`, 11:1), men resten av nettstedet gjør ikke det.
+   Kontrastrevisjonen 07.09 fanget den ikke opp — den lette etter usynlig tekst,
+   ikke etter tekst som er for lys. Fiksen er én variabel, men den endrer
+   utseendet på alle 14 sider, så det er Bengts valg.
+
 Lav prioritet: render-blocking Google Fonts (tre familier, ~870 ms på LCP-stien
 målt 08.09), utbygging av /om/ og /tjenester/ med fagstoff (krever Bengt),
 `.svc-arr`/`.split-eyebrow`-kontrast, sticky `.aside-block`, wrangler 4.71 →
-4.129. (404 noindex, URL-encoding, titler, `lang="nb"`, datoer og og-bilder er
+4.129, `assets/nav.js` mangler `?v=`-versjonering.
+
+🔴 **Versjonsbumping er manuell og gjelder nå minst ni filer.** 12.09 ble
+`styles.css` bumpet mens `vaer.js` ble glemt, og kanten serverte gammel kode i
+prod. Ingenting fanger det automatisk — `scripts/oppdater-datoer.sh` rører ikke
+`?v=`. Bump ALLE endrede assets i samme slengen. (404 noindex, URL-encoding, titler, `lang="nb"`, datoer og og-bilder er
 gjort — se «Bolk C-F GJORT».)
 
 Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
