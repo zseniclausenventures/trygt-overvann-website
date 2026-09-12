@@ -66,6 +66,14 @@
 
   var NIVANAVN = { gul: 'Gult nivå', oransje: 'Oransje nivå', rod: 'Rødt nivå' };
 
+  // Bakgrunnsfarge etter været i dag: gul sol, grå skyet, blå regn, hvit snø.
+  var FARGE = {
+    sol: 'v-sol', maane: 'v-sol',
+    delvisdag: 'v-skyet', delvisnatt: 'v-skyet', skyet: 'v-skyet', taake: 'v-skyet',
+    regn: 'v-regn', sludd: 'v-regn', torden: 'v-regn',
+    sno: 'v-sno'
+  };
+
   function trekant(niva) {
     return '<svg viewBox="0 0 24 24" role="img" aria-label="' + NIVANAVN[niva] + '">' +
       '<path d="M12 3.2 22.4 21H1.6Z" fill="var(--niva-' + niva + ')" stroke="var(--ink)" stroke-width="1.1" stroke-linejoin="round"/>' +
@@ -124,6 +132,7 @@
       ? '<span class="vaer-flagg"><span style="width:15px"></span><span>+ ' + (d.farevarsler.length - 2) + ' varsler til</span></span>'
       : '';
 
+    boks.className = boks.className.replace(/\s*\bv-\w+/g, '') + ' ' + FARGE[ikonNavn(d.dogn[0].symbol)];
     boks.innerHTML =
       '<p class="vaer-boks-tittel">Varsel for ' + trygg(d.sted.navn) + '</p>' +
       '<div class="vaer-tredogn">' + tre + '</div>' +

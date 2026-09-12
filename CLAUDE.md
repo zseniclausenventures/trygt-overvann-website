@@ -274,11 +274,33 @@ er. En kompakt boks med tre døgn og faretrekanter lenker dit fra to steder:
 boks i det hele tatt — da var siden i praksis uoppdagbar. Fjernes forsideboksen,
 forsvinner den eneste synlige inngangen igjen.
 
+### Værtypen farger boksen (12.09.2026)
+
+Boksen får bakgrunnsfarge etter symbolet **i dag**: gul ved klarvær (`v-sol`),
+grå ved skyet/tåke (`v-skyet`), blå ved regn/sludd/torden (`v-regn`), hvit ved
+snø (`v-sno`). Gjelder både forsidens hero-boks og sidestolpen.
+
+🔴 **Fargene settes som fem tokens, ikke som bakgrunn alene**: `--vb-bunn`,
+`--vb-tekst`, `--vb-dempet`, `--vb-strek`, `--vb-ikon`. Gul og hvit er LYSE
+bunner og krever mørk tekst — setter du bare bakgrunnen, blir hvit tekst på gul
+bunn usynlig. Alle fire målt: laveste kontrast 4,92:1 (gul), høyeste 9,71:1
+(snø). Legger du til en femte værtype, sett alle fem tokenene og mål.
+
+Klarvær om NATTEN gir også gul boks. Bengt ba om fire tilstander, og en egen
+nattfarge ville vært en femte han ikke har bedt om — men den ser rar ut i
+mørket, så den er verdt å ta opp.
+
 **Rapportagent-banneret er fjernet fra forsiden 12.09.2026** (Bengts beslutning).
 Det var en `.product-teaser`-seksjon nederst med amber knapp og «Gratis 14 dagers
 trial». CSS-reglene er fjernet med den. Dermed er også det siste prisutsagnet på
-forsiden borte — se «Personinformasjon og priser». Den diskré lenka til
-rapportagenten.com i bunnteksten står fortsatt på alle 14 sider.
+forsiden borte — se «Personinformasjon og priser». Lenka til rapportagenten.com i
+bunnteksten er også fjernet, fra alle 14 sider (12.09).
+
+🔴 **To forekomster står igjen, bevisst, til Bengt avgjør:** `sameAs` i
+Organization-noden på alle 14 sider (maskinlesbar eierskapsknytning, ikke en
+synlig lenke), og to setninger i brødteksten på /tjenester/overvannsradgivning/
+og /tjenester/va-prosjektering/ om at rapporter produseres med egenutviklet
+AI-teknologi.
 
 **`/for-advokater/` er bevisst holdt utenfor** — den siden selger
 sakkyndigtjenester, og en levende værboks der leses som pynt på feil sted.

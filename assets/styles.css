@@ -238,24 +238,45 @@ a{color:inherit}
 /* VARSEL — værvarsel og farevarsler (MET + NVE) */
 /* Nivåfargene brukes bare som FLATE (trekant, stripe), aldri som tekstfarge.
    Nivået står alltid i ord ved siden av, så fargen er aldri eneste bærer. */
-:root{--niva-gul:#c08800;--niva-oransje:#d4600f;--niva-rod:#a51d2a}
+:root{--niva-gul:#c08800;--niva-oransje:#d4600f;--niva-rod:#a51d2a;
+  --vb-bunn:var(--white);--vb-tekst:var(--ink);--vb-dempet:var(--ink2);
+  --vb-strek:var(--rule);--vb-ikon:var(--petro)}
 
 /* Sidestolpeboks */
-.vaer-boks{display:block;background:var(--white);border:1px solid var(--rule);padding:1.5rem;margin-bottom:1.25rem;text-decoration:none;color:inherit;transition:border-color .2s;min-height:243px}
-.vaer-boks:hover{border-color:var(--petro)}
-.vaer-boks-tittel{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:.9rem}
-.vaer-tredogn{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.vaer-dag{background:var(--white);padding:.7rem .35rem;text-align:center;min-height:98px}
-.vaer-dag-navn{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
-.vaer-ikon{width:26px;height:26px;margin:.4rem auto .3rem;display:block;color:var(--petro)}
-.vaer-temp{font-family:var(--serif);font-size:1.15rem;color:var(--ink);line-height:1.1}
-.vaer-mm{font-family:var(--mono);font-size:.55rem;color:var(--petro2);margin-top:.25rem;min-height:.8rem}
-.vaer-mm.tort{color:var(--ink2)}
+.vaer-boks{display:block;background:var(--vb-bunn);border:1px solid var(--vb-strek);color:var(--vb-tekst);padding:1.5rem;margin-bottom:1.25rem;text-decoration:none;transition:border-color .2s,background .3s;min-height:243px}
+.vaer-boks:hover{border-color:var(--vb-ikon)}
+.vaer-boks-tittel{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--vb-dempet);margin-bottom:.9rem}
+.vaer-tredogn{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--vb-strek);border:1px solid var(--vb-strek)}
+.vaer-dag{background:var(--vb-bunn);padding:.7rem .35rem;text-align:center;min-height:98px}
+.vaer-dag-navn{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--vb-dempet)}
+.vaer-ikon{width:26px;height:26px;margin:.4rem auto .3rem;display:block;color:var(--vb-ikon)}
+.vaer-temp{font-family:var(--serif);font-size:1.15rem;color:var(--vb-tekst);line-height:1.1}
+.vaer-mm{font-family:var(--mono);font-size:.55rem;color:var(--vb-ikon);margin-top:.25rem;min-height:.8rem}
+.vaer-mm.tort{color:var(--vb-dempet)}
 .vaer-boks-varsler{margin-top:.9rem;display:flex;flex-direction:column;gap:.4rem}
-.vaer-flagg{display:flex;align-items:flex-start;gap:.45rem;font-size:.76rem;color:var(--ink2);line-height:1.45}
+.vaer-flagg{display:flex;align-items:flex-start;gap:.45rem;font-size:.76rem;color:var(--vb-tekst);line-height:1.45}
 .vaer-flagg svg{width:15px;height:15px;flex:0 0 15px;margin-top:.12rem}
-.vaer-boks-lenke{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--rule);font-size:.78rem;color:var(--petro)}
+.vaer-boks-lenke{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--vb-strek);font-size:.78rem;color:var(--vb-tekst)}
 .vaer-boks[hidden]{display:none}
+
+/* Værtypen farger boksen. Lyse bunner (sol, snø) må ha mørk tekst — derfor
+   settes ALLE fem tokenene per variant, ikke bare bakgrunnen. */
+.vaer-boks.v-sol{--vb-bunn:#d9a52c;--vb-tekst:#241a05;--vb-dempet:#4a3a12;--vb-strek:rgba(36,26,5,.28);--vb-ikon:#4a3a12}
+.vaer-boks.v-skyet{--vb-bunn:#4c5457;--vb-tekst:#fff;--vb-dempet:rgba(255,255,255,.82);--vb-strek:rgba(255,255,255,.3);--vb-ikon:#fff}
+.vaer-boks.v-regn{--vb-bunn:#1b4d5e;--vb-tekst:#fff;--vb-dempet:rgba(255,255,255,.82);--vb-strek:rgba(255,255,255,.3);--vb-ikon:#fff}
+.vaer-boks.v-sno{--vb-bunn:#eef1f3;--vb-tekst:var(--ink);--vb-dempet:var(--ink2);--vb-strek:#c6ccd0;--vb-ikon:var(--petro)}
+
+/* Over hero-bildet, øverst til høyre. Solid bunn, ikke halvgjennomsiktig:
+   da er kontrasten den samme uansett hva fotografiet viser under. */
+.vaer-boks.pa-bilde{min-height:0;position:absolute;z-index:3;top:calc(68px + clamp(1rem,2.5vw,2rem));right:var(--pad);width:300px;max-width:calc(100vw - 2*var(--pad));margin:0;padding:1.15rem}
+.vaer-boks.pa-bilde:not([class*="v-"]){--vb-bunn:#132d36;--vb-tekst:#fff;--vb-dempet:rgba(255,255,255,.82);--vb-strek:rgba(255,255,255,.3);--vb-ikon:#fff}
+.vaer-boks.pa-bilde .vaer-boks-tittel{margin-bottom:.7rem}
+.vaer-boks.pa-bilde .vaer-tredogn{background:transparent;gap:0}
+.vaer-boks.pa-bilde .vaer-dag+.vaer-dag{border-left:1px solid var(--vb-strek)}
+.vaer-boks.pa-bilde .vaer-dag{background:transparent;min-height:88px;padding:.55rem .3rem}
+.vaer-boks.pa-bilde .vaer-temp{font-size:1.05rem}
+.vaer-boks.pa-bilde .vaer-ikon{width:23px;height:23px}
+.vaer-boks.pa-bilde .vaer-boks-lenke{margin-top:.75rem;padding-top:.6rem;font-size:.74rem}
 
 /* Sidevisning */
 .vaer-hode{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.75rem;border-bottom:1px solid var(--rule);padding-bottom:.75rem;margin-bottom:1.5rem}
@@ -288,23 +309,6 @@ a{color:inherit}
 .vaer-kilde{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--rule)}
 .vaer-kilde a{color:var(--petro)}
 .vaer-feil{font-size:.9rem;color:var(--ink2)}
-
-
-/* Over hero-bildet, øverst til høyre. Trenger egen bunn for å være lesbar
-   uansett hva fotografiet viser der. */
-
-.vaer-boks.pa-bilde{min-height:0;position:absolute;z-index:3;top:calc(68px + clamp(1rem,2.5vw,2rem));right:var(--pad);width:300px;max-width:calc(100vw - 2*var(--pad));margin:0;background:rgba(19,45,54,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:rgba(255,255,255,.3);color:#fff;padding:1.15rem}
-.vaer-boks.pa-bilde:hover{border-color:rgba(255,255,255,.7);background:rgba(19,45,54,.92)}
-.vaer-boks.pa-bilde .vaer-boks-tittel{color:rgba(255,255,255,.82);margin-bottom:.7rem}
-.vaer-boks.pa-bilde .vaer-tredogn{background:transparent;gap:0;border-color:rgba(255,255,255,.3)}
-.vaer-boks.pa-bilde .vaer-dag+.vaer-dag{border-left:1px solid rgba(255,255,255,.3)}
-.vaer-boks.pa-bilde .vaer-dag{background:transparent;min-height:88px;padding:.55rem .3rem}
-.vaer-boks.pa-bilde .vaer-dag-navn{color:rgba(255,255,255,.82)}
-.vaer-boks.pa-bilde .vaer-temp{color:#fff;font-size:1.05rem}
-.vaer-boks.pa-bilde .vaer-ikon{color:#fff;width:23px;height:23px}
-.vaer-boks.pa-bilde .vaer-mm,.vaer-boks.pa-bilde .vaer-mm.tort{color:rgba(255,255,255,.88)}
-.vaer-boks.pa-bilde .vaer-flagg{color:#fff}
-.vaer-boks.pa-bilde .vaer-boks-lenke{border-top-color:rgba(255,255,255,.25);color:#fff;margin-top:.75rem;padding-top:.6rem;font-size:.74rem}
 
 /* MEDIA */
 @media(max-width:1024px){
