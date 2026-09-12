@@ -255,10 +255,23 @@ over, GBP. `/OM/` med store bokstaver gir 200 — Pages har ingen bryter for det
 ## Værvarsel og farevarsler (12.09.2026)
 
 `/vaervarsel/` viser ti døgn og alle aktive farevarsler for der den besøkende
-er. En kompakt boks med tre døgn og faretrekanter står i sidestolpen på de sju
-tjenestesidene og lenker dit. **`/for-advokater/` er bevisst holdt utenfor** —
-den siden selger sakkyndigtjenester, og en levende værboks der leses som pynt
-på feil sted.
+er. En kompakt boks med tre døgn og faretrekanter lenker dit fra to steder:
+
+- **Forsiden**, i klimaseksjonen (`.split-climate`), under brødteksten og over
+  «Les mer». Dette er hovedinngangen — Bengts poeng var at forsiden skal vise
+  de neste tre døgnene. Boksen har klassen `pa-morkt`, en invertert variant for
+  petrolbakgrunnen.
+- **Sidestolpen på de sju tjenestesidene**, over kontaktkortet.
+
+🔴 Siden ligger **ikke** i hovedmenyen, og forsiden hadde i første utgave ingen
+boks i det hele tatt — da var siden i praksis uoppdagbar. Fjernes forsideboksen,
+forsvinner den eneste synlige inngangen igjen.
+
+**`/for-advokater/` er bevisst holdt utenfor** — den siden selger
+sakkyndigtjenester, og en levende værboks der leses som pynt på feil sted.
+
+🔴 **Ikonfargene er `currentColor`, ikke hardkodet.** De var petrol og amber i
+første utgave og ble usynlige på mørk bunn. Hardkod dem ikke tilbake.
 
 ### Kilder — fire, ikke én
 

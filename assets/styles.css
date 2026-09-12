@@ -255,7 +255,7 @@ a{color:inherit}
 .vaer-tredogn{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
 .vaer-dag{background:var(--white);padding:.7rem .35rem;text-align:center;min-height:98px}
 .vaer-dag-navn{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
-.vaer-ikon{width:26px;height:26px;margin:.4rem auto .3rem;display:block}
+.vaer-ikon{width:26px;height:26px;margin:.4rem auto .3rem;display:block;color:var(--petro)}
 .vaer-temp{font-family:var(--serif);font-size:1.15rem;color:var(--ink);line-height:1.1}
 .vaer-mm{font-family:var(--mono);font-size:.55rem;color:var(--petro2);margin-top:.25rem;min-height:.8rem}
 .vaer-mm.tort{color:var(--ink2)}
@@ -296,6 +296,20 @@ a{color:inherit}
 .vaer-kilde{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--rule)}
 .vaer-kilde a{color:var(--petro)}
 .vaer-feil{font-size:.9rem;color:var(--ink2)}
+
+/* Mørk variant — klimaseksjonen på forsiden står på var(--petro) */
+.vaer-boks.pa-morkt{background:transparent;border-color:rgba(255,255,255,.3);color:#fff;max-width:360px;margin:0 0 1.75rem}
+.vaer-boks.pa-morkt:hover{border-color:rgba(255,255,255,.65)}
+.vaer-boks.pa-morkt .vaer-boks-tittel{color:rgba(255,255,255,.78)}
+.vaer-boks.pa-morkt .vaer-tredogn{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.3)}
+.vaer-boks.pa-morkt .vaer-dag{background:var(--petro)}
+.vaer-boks.pa-morkt .vaer-dag-navn{color:rgba(255,255,255,.78)}
+.vaer-boks.pa-morkt .vaer-temp{color:#fff}
+.vaer-boks.pa-morkt .vaer-ikon{color:#fff}
+.vaer-boks.pa-morkt .vaer-mm{color:rgba(255,255,255,.88)}
+.vaer-boks.pa-morkt .vaer-mm.tort{color:rgba(255,255,255,.7)}
+.vaer-boks.pa-morkt .vaer-flagg{color:#fff}
+.vaer-boks.pa-morkt .vaer-boks-lenke{border-top-color:rgba(255,255,255,.22);color:#fff}
 
 /* MEDIA */
 @media(max-width:1024px){

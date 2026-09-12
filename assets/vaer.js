@@ -10,17 +10,17 @@
 (function () {
   'use strict';
 
-  var boks = document.querySelector('.vaer-boks');
+  var bokser = [].slice.call(document.querySelectorAll('.vaer-boks'));
   var side = document.getElementById('vaer-side');
-  if (!boks && !side) return;
+  if (!bokser.length && !side) return;
 
 
   /* ---------- symboler ---------- */
 
   var P = 'fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round';
   var SKY = '<path d="M6.5 17.5h11a3.2 3.2 0 0 0 .3-6.4 5 5 0 0 0-9.6-1.2 3.3 3.3 0 0 0-1.7 7.6Z" style="' + P + '"/>';
-  var DRAAPE = function (x, y) { return '<path d="M' + x + ' ' + y + 'v2.6" style="' + P + ';stroke:#26697d"/>'; };
-  var STJERNE = function (x, y) { return '<path d="M' + x + ' ' + (y - 1) + 'v2.6M' + (x - 1.2) + ' ' + (y - .3) + 'l2.4 1.4M' + (x + 1.2) + ' ' + (y - .3) + 'l-2.4 1.4" style="' + P + ';stroke:#26697d;stroke-width:1.1"/>'; };
+  var DRAAPE = function (x, y) { return '<path d="M' + x + ' ' + y + 'v2.6" style="' + P + ';opacity:.75"/>'; };
+  var STJERNE = function (x, y) { return '<path d="M' + x + ' ' + (y - 1) + 'v2.6M' + (x - 1.2) + ' ' + (y - .3) + 'l2.4 1.4M' + (x + 1.2) + ' ' + (y - .3) + 'l-2.4 1.4" style="' + P + ';stroke-width:1.1;opacity:.75"/>'; };
 
   var SOL = '<circle cx="12" cy="12" r="3.6" style="' + P + '"/>' +
     '<path d="M12 4.6V6m0 12v1.4M4.6 12H6m12 0h1.4M6.8 6.8l1 1m8.4 8.4 1 1m0-10.4-1 1m-8.4 8.4-1 1" style="' + P + '"/>';
@@ -36,7 +36,7 @@
     regn: SKY + DRAAPE(9, 19.4) + DRAAPE(12, 20.2) + DRAAPE(15, 19.4),
     sludd: SKY + DRAAPE(9.5, 19.6) + STJERNE(14.5, 20.6),
     sno: SKY + STJERNE(9, 20.4) + STJERNE(12, 21.4) + STJERNE(15, 20.4),
-    torden: SKY + '<path d="M12.6 18.4h2.4l-3.6 4.4.9-3H10l2.6-3.4Z" style="fill:#c07a2f;stroke:none"/>' + DRAAPE(8.6, 19.4)
+    torden: SKY + '<path d="M12.6 18.4h2.4l-3.6 4.4.9-3H10l2.6-3.4Z" style="fill:currentColor;stroke:none"/>' + DRAAPE(8.6, 19.4)
   };
 
   function ikonNavn(kode) {
@@ -61,7 +61,7 @@
   function ikon(kode, klasse) {
     var n = ikonNavn(kode);
     return '<svg class="' + (klasse || 'vaer-ikon') + '" viewBox="0 0 24 24" role="img" aria-label="' +
-      TEKST[n] + '" style="color:var(--petro)">' + IKON[n] + '</svg>';
+      TEKST[n] + '">' + IKON[n] + '</svg>';
   }
 
   var NIVANAVN = { gul: 'Gult nivå', oransje: 'Oransje nivå', rod: 'Rødt nivå' };
@@ -108,7 +108,7 @@
 
   /* ---------- tegning ---------- */
 
-  function tegnBoks(d) {
+  function tegnBoks(boks, d) {
     var tre = d.dogn.slice(0, 3).map(function (r) {
       return '<div class="vaer-dag"><p class="vaer-dag-navn">' + dagNavn(r.dato) + '</p>' +
         ikon(r.symbol) +
@@ -183,13 +183,13 @@
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (d) {
         if (!d.dogn || !d.dogn.length) throw new Error('tomt varsel');
-        if (boks) tegnBoks(d);
+        bokser.forEach(function (b) { tegnBoks(b, d); });
         if (side) tegnSide(d);
       })
       .catch(function () {
         // I sidestolpen skal en feil være usynlig — ingen feilmelding på en
         // tjenesteside. På varselsida sier vi fra og peker videre.
-        if (boks) boks.remove();
+        bokser.forEach(function (b) { b.remove(); });
         if (side) {
           side.innerHTML = '<p class="vaer-feil">Varselet er ikke tilgjengelig akkurat nå. ' +
             'Se <a href="https://www.yr.no/" rel="noopener" target="_blank">yr.no</a> og ' +
