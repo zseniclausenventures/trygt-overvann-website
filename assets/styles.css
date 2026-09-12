@@ -121,14 +121,6 @@ a{color:inherit}
 .cta-btns{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* PRODUCT TEASER */
-.product-teaser{background:var(--ink);padding:clamp(2.5rem,5vw,3.5rem) 0;border-top:1px solid rgba(255,255,255,.08)}
-.product-teaser .inner{max-width:var(--max);margin:0 auto;padding:0 var(--pad);display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
-.product-teaser-text{max-width:680px}
-.product-teaser-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
-.product-teaser-title{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:400;color:#fff;line-height:1.4;margin-bottom:.4rem}
-.product-teaser-desc{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.7}
-.btn-teaser{background:var(--amber);color:#fff;border:none;padding:.7rem 1.8rem;font-family:var(--sans);font-size:.85rem;font-weight:500;cursor:pointer;transition:background .2s;text-decoration:none;white-space:nowrap;display:inline-block}
-.btn-teaser:hover{background:#a8691f}
 
 /* BUTTONS */
 .btn-primary{background:var(--petro);color:#fff;border:none;padding:.9rem 2rem;font-family:var(--sans);font-size:.9rem;font-weight:500;cursor:pointer;transition:background .2s;white-space:nowrap;text-decoration:none;display:inline-block}
@@ -297,19 +289,22 @@ a{color:inherit}
 .vaer-kilde a{color:var(--petro)}
 .vaer-feil{font-size:.9rem;color:var(--ink2)}
 
-/* Mørk variant — klimaseksjonen på forsiden står på var(--petro) */
-.vaer-boks.pa-morkt{background:transparent;border-color:rgba(255,255,255,.3);color:#fff;max-width:360px;margin:0 0 1.75rem}
-.vaer-boks.pa-morkt:hover{border-color:rgba(255,255,255,.65)}
-.vaer-boks.pa-morkt .vaer-boks-tittel{color:rgba(255,255,255,.78)}
-.vaer-boks.pa-morkt .vaer-tredogn{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.3)}
-.vaer-boks.pa-morkt .vaer-dag{background:var(--petro)}
-.vaer-boks.pa-morkt .vaer-dag-navn{color:rgba(255,255,255,.78)}
-.vaer-boks.pa-morkt .vaer-temp{color:#fff}
-.vaer-boks.pa-morkt .vaer-ikon{color:#fff}
-.vaer-boks.pa-morkt .vaer-mm{color:rgba(255,255,255,.88)}
-.vaer-boks.pa-morkt .vaer-mm.tort{color:rgba(255,255,255,.7)}
-.vaer-boks.pa-morkt .vaer-flagg{color:#fff}
-.vaer-boks.pa-morkt .vaer-boks-lenke{border-top-color:rgba(255,255,255,.22);color:#fff}
+
+/* Over hero-bildet, øverst til høyre. Trenger egen bunn for å være lesbar
+   uansett hva fotografiet viser der. */
+
+.vaer-boks.pa-bilde{min-height:0;position:absolute;z-index:3;top:calc(68px + clamp(1rem,2.5vw,2rem));right:var(--pad);width:300px;max-width:calc(100vw - 2*var(--pad));margin:0;background:rgba(19,45,54,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:rgba(255,255,255,.3);color:#fff;padding:1.15rem}
+.vaer-boks.pa-bilde:hover{border-color:rgba(255,255,255,.7);background:rgba(19,45,54,.92)}
+.vaer-boks.pa-bilde .vaer-boks-tittel{color:rgba(255,255,255,.82);margin-bottom:.7rem}
+.vaer-boks.pa-bilde .vaer-tredogn{background:transparent;gap:0;border-color:rgba(255,255,255,.3)}
+.vaer-boks.pa-bilde .vaer-dag+.vaer-dag{border-left:1px solid rgba(255,255,255,.3)}
+.vaer-boks.pa-bilde .vaer-dag{background:transparent;min-height:88px;padding:.55rem .3rem}
+.vaer-boks.pa-bilde .vaer-dag-navn{color:rgba(255,255,255,.82)}
+.vaer-boks.pa-bilde .vaer-temp{color:#fff;font-size:1.05rem}
+.vaer-boks.pa-bilde .vaer-ikon{color:#fff;width:23px;height:23px}
+.vaer-boks.pa-bilde .vaer-mm,.vaer-boks.pa-bilde .vaer-mm.tort{color:rgba(255,255,255,.88)}
+.vaer-boks.pa-bilde .vaer-flagg{color:#fff}
+.vaer-boks.pa-bilde .vaer-boks-lenke{border-top-color:rgba(255,255,255,.25);color:#fff;margin-top:.75rem;padding-top:.6rem;font-size:.74rem}
 
 /* MEDIA */
 @media(max-width:1024px){
@@ -324,6 +319,7 @@ a{color:inherit}
   .hero-content{grid-template-columns:1fr;gap:2rem}
   .hero-right{align-items:flex-start}.hero-btns{justify-content:flex-start}
   .hero-desc,.split-text{max-width:100%}
+  .vaer-boks.pa-bilde{display:none}
   .hero-stat-val{font-size:1.6rem}
   .svc-grid{grid-template-columns:1fr}.svc-card.featured{min-height:300px}
   .split-about,.split-climate{grid-template-columns:1fr}

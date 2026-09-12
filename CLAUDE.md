@@ -257,15 +257,28 @@ over, GBP. `/OM/` med store bokstaver gir 200 — Pages har ingen bryter for det
 `/vaervarsel/` viser ti døgn og alle aktive farevarsler for der den besøkende
 er. En kompakt boks med tre døgn og faretrekanter lenker dit fra to steder:
 
-- **Forsiden**, i klimaseksjonen (`.split-climate`), under brødteksten og over
-  «Les mer». Dette er hovedinngangen — Bengts poeng var at forsiden skal vise
-  de neste tre døgnene. Boksen har klassen `pa-morkt`, en invertert variant for
-  petrolbakgrunnen.
+- **Forsiden, øverst til høyre i heroen**, over fotografiet (`.pa-bilde`,
+  absolutt posisjonert i `.hero`). Dette er hovedinngangen — Bengts poeng var
+  at forsiden skal vise de neste tre døgnene. Den lå først i klimaseksjonen;
+  Bengt flyttet den hit 12.09.
+  🔴 **Flaten må være minst 85 % ugjennomsiktig.** Med 0,62 falt kontrasten til
+  3,5:1 der boksen ligger over et lyst parti av fotoet. Regn i verste fall —
+  boksfargen lagt over HVITT — ikke mot fargen fotoet tilfeldigvis har i dag.
+  🔴 **Husets `gap:1px`-rutenett virker ikke over bilde.** Teknikken forutsetter
+  ugjennomsiktige celler; er de gjennomsiktige, skinner containerfargen gjennom
+  hele rutenettet som et lysere felt. Her brukes `border-left` på cellene.
+  Skjult under 900 px — der stables heroen og boksen ville dekket overskriften.
 - **Sidestolpen på de sju tjenestesidene**, over kontaktkortet.
 
 🔴 Siden ligger **ikke** i hovedmenyen, og forsiden hadde i første utgave ingen
 boks i det hele tatt — da var siden i praksis uoppdagbar. Fjernes forsideboksen,
 forsvinner den eneste synlige inngangen igjen.
+
+**Rapportagent-banneret er fjernet fra forsiden 12.09.2026** (Bengts beslutning).
+Det var en `.product-teaser`-seksjon nederst med amber knapp og «Gratis 14 dagers
+trial». CSS-reglene er fjernet med den. Dermed er også det siste prisutsagnet på
+forsiden borte — se «Personinformasjon og priser». Den diskré lenka til
+rapportagenten.com i bunnteksten står fortsatt på alle 14 sider.
 
 **`/for-advokater/` er bevisst holdt utenfor** — den siden selger
 sakkyndigtjenester, og en levende værboks der leses som pynt på feil sted.

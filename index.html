@@ -28,9 +28,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="/assets/styles.css?v=20260912b" as="style">
+<link rel="preload" href="/assets/styles.css?v=20260912e" as="style">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css?v=20260912b">
+<link rel="stylesheet" href="/assets/styles.css?v=20260912e">
 <script type="application/ld+json">{
 "@context": "https://schema.org",
 "@type": [
@@ -257,6 +257,10 @@
 <section class="hero" aria-label="Introduksjon">
   <img class="hero-img" src="/assets/Vann%20Bryggen.webp" alt="Bryggen i Bergen med vann på gaten" width="1209" height="629" fetchpriority="high" decoding="async">
   <div class="hero-overlay"></div>
+  <!-- Tegnes av /assets/vaer.js. Skjelettet har fast høyde, så heroen ikke
+       hopper når varselet kommer. Skjules under 900 px — over bildet blir den
+       liggende oppå overskriften. -->
+  <a class="vaer-boks pa-bilde" href="/vaervarsel/" aria-label="Værvarsel og farevarsler"><p class="vaer-boks-tittel">Varsel</p><div class="vaer-tredogn"><div class="vaer-dag"></div><div class="vaer-dag"></div><div class="vaer-dag"></div></div><span class="vaer-boks-lenke">&nbsp;</span></a>
   <div class="hero-content">
     <div class="hero-left">
       <p class="hero-label">Trygt Overvann™ &mdash; Bergen</p>
@@ -382,9 +386,6 @@
     <p class="split-eyebrow">Klimatilpasning</p>
     <h2 class="split-heading" id="klima-overskrift">Klimaet endrer seg.<br>Vi hjelper deg å ligge foran.</h2>
     <p class="split-text">Mer nedbør, kraftigere regn, høyere havnivå. Vi vurderer klimarisiko og dimensjonerer infrastruktur for fremtidens vær.</p>
-    <!-- Tegnes av /assets/vaer.js. Skjelettet står her med fast høyde, ellers
-         hopper seksjonen når varselet kommer. -->
-    <a class="vaer-boks pa-morkt" href="/vaervarsel/" aria-label="Værvarsel og farevarsler"><p class="vaer-boks-tittel">Varsel</p><div class="vaer-tredogn"><div class="vaer-dag"></div><div class="vaer-dag"></div><div class="vaer-dag"></div></div><span class="vaer-boks-lenke">&nbsp;</span></a>
     <a class="btn-primary" href="/tjenester/klimatilpasning/" style="align-self:flex-start">Les mer</a>
   </div>
   <img class="split-img" src="/assets/split-flom-under-bro.webp" alt="Flom under bro etter kraftig nedbør" width="900" height="517" loading="lazy" decoding="async">
@@ -403,16 +404,6 @@
   </div>
 </section>
 
-<section class="product-teaser">
-  <div class="inner">
-    <div class="product-teaser-text">
-      <p class="product-teaser-label">Fra Trygt Overvann™</p>
-      <p class="product-teaser-title">Rapportagenten &mdash; AI-drevet rapportgenerering for ingeniører</p>
-      <p class="product-teaser-desc">Bygget på 17 års erfaring med VA-rapporter. Last opp lydopptak eller notater, få ferdig rapport på minutter.</p>
-    </div>
-    <a href="https://rapportagenten.com" target="_blank" rel="noopener noreferrer" class="btn-teaser">Gratis 14 dagers trial &#8594;</a>
-  </div>
-</section>
 </main>
 <footer class="site-footer">
   <div class="footer-body">
@@ -459,5 +450,5 @@
   </div>
 </footer>
 <script src="/assets/nav.js" defer></script>
-<script src="/assets/vaer.js?v=20260912b" defer></script>
+<script src="/assets/vaer.js?v=20260912e" defer></script>
 </body></html>
