@@ -361,9 +361,13 @@ a{color:inherit}
      innholdsbredden så snart margin-left:auto settes (165 px i stedet for
      351). Taket på 360 px + auto venstremarg høyrestiller den på nettbrett,
      som speiler desktop. På telefon er bredden mindre enn taket uansett. */
-  .vaer-boks.pa-bilde{position:relative;z-index:2;top:auto;right:auto;
+  /* order:2 legger boksen ETTER .hero-content, altså nederst i heroen, og
+     margin:0 auto sentrerer den. Eksplisitt width er fortsatt nødvendig — uten
+     den krymper flex-barnet til innholdsbredden så snart margin blir auto. */
+  .vaer-boks.pa-bilde{position:relative;z-index:2;top:auto;right:auto;order:2;
     width:calc(100% - 2 * var(--pad));max-width:300px;
-    margin:1rem var(--pad) 1.25rem auto;padding:.8rem .85rem}
+    margin:0 auto;padding:.8rem .85rem}
+  .hero-content{padding-bottom:2rem}
   /* Komprimert på liten skjerm — boksen skal ikke spise heroen.
      🔴 min-height på cellene MÅ følge den komprimerte høyden: skjelettet har
      tomme celler, og faller de sammen mens de fylte ikke gjør det, er

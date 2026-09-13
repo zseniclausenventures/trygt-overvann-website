@@ -282,9 +282,11 @@ er. En kompakt boks med tre døgn og faretrekanter lenker dit fra to steder:
   🔴 **Husets `gap:1px`-rutenett virker ikke over bilde.** Teknikken forutsetter
   ugjennomsiktige celler; er de gjennomsiktige, skinner containerfargen gjennom
   hele rutenettet som et lysere felt. Her brukes `border-left` på cellene.
-  🔴 **Under 900 px går boksen i NORMAL FLYT øverst i heroen** — den var først
+  🔴 **Under 900 px går boksen i NORMAL FLYT NEDERST i heroen**, sentrert
+  (`order:2` + `margin:0 auto`), og komprimert til 169x300 px — den var først
   `display:none` der, slik at værvarselet ikke fantes på telefon og nettbrett i
-  stående format i det hele tatt. «Skjult på små skjermer» er ikke responsivt
+  stående format i det hele tatt. Deretter lå den ØVERST, men spiste en
+  fjerdedel av heroen; Bengt ba 13.09 om å flytte den ned og sentrere den. «Skjult på små skjermer» er ikke responsivt
   design, det er en manglende visning. Den trenger `position:relative;z-index:2`
   for å komme over `.hero-overlay`, og **eksplisitt `width`**: med `width:auto`
   krymper et flex-barn til innholdsbredden så snart `margin-left:auto` settes
