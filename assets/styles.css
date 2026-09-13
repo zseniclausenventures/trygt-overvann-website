@@ -348,7 +348,22 @@ a{color:inherit}
   .hero-content{grid-template-columns:1fr;gap:2rem}
   .hero-right{align-items:flex-start}.hero-btns{justify-content:flex-start}
   .hero-desc,.split-text{max-width:100%}
-  .vaer-boks.pa-bilde{display:none}
+  /* Under 900 px stables heroen, og en absolutt plassert boks ville dekket
+     overskriften. Den går derfor inn i normal flyt ØVERST i heroen i stedet
+     for å skjules — ellers finnes værvarselet ikke på mobil og nettbrett.
+     position:relative + z-index trengs for å komme OVER .hero-overlay, som er
+     absolutt plassert og ellers maler over et statisk element. */
+  .hero{flex-direction:column;align-items:stretch;justify-content:flex-end}
+  /* Taket på 360 px + margin-left:auto høyrestiller den på nettbrett, som
+     speiler desktop-plasseringen. På telefon er tilgjengelig bredde mindre
+     enn taket, så den fyller bredden av seg selv. */
+  /* Eksplisitt width er nødvendig: med width:auto krymper et flex-barn til
+     innholdsbredden så snart margin-left:auto settes (165 px i stedet for
+     351). Taket på 360 px + auto venstremarg høyrestiller den på nettbrett,
+     som speiler desktop. På telefon er bredden mindre enn taket uansett. */
+  .vaer-boks.pa-bilde{position:relative;z-index:2;top:auto;right:auto;
+    width:calc(100% - 2 * var(--pad));max-width:360px;
+    margin:1.25rem var(--pad) 1.5rem auto}
   .hero-stat-val{font-size:1.6rem}
   .svc-grid{grid-template-columns:1fr}.svc-card.featured{min-height:300px}
   .split-about,.split-climate{grid-template-columns:1fr}
