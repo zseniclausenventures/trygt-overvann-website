@@ -283,7 +283,11 @@ er. En kompakt boks med tre døgn og faretrekanter lenker dit fra to steder:
   ugjennomsiktige celler; er de gjennomsiktige, skinner containerfargen gjennom
   hele rutenettet som et lysere felt. Her brukes `border-left` på cellene.
   🔴 **Under 900 px går boksen i NORMAL FLYT NEDERST i heroen**, sentrert
-  (`order:2` + `margin:0 auto`), og komprimert til 169x300 px — den var først
+  (`order:2` + `margin:0 auto`), komprimert til 169x300 px, og med negativ
+  bunnmarg så den **henger ned over kanten** mot seksjonen under — det gir
+  mer synlig fotografi. Krever `overflow:visible` på `.hero` (base-regelen
+  har `overflow:hidden` og ville klippet den) og `z-index:3`, siden
+  `.services-band` males etter og ellers dekker den — den var først
   `display:none` der, slik at værvarselet ikke fantes på telefon og nettbrett i
   stående format i det hele tatt. Deretter lå den ØVERST, men spiste en
   fjerdedel av heroen; Bengt ba 13.09 om å flytte den ned og sentrere den. «Skjult på små skjermer» er ikke responsivt

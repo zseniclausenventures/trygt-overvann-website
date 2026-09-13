@@ -364,10 +364,15 @@ a{color:inherit}
   /* order:2 legger boksen ETTER .hero-content, altså nederst i heroen, og
      margin:0 auto sentrerer den. Eksplisitt width er fortsatt nødvendig — uten
      den krymper flex-barnet til innholdsbredden så snart margin blir auto. */
-  .vaer-boks.pa-bilde{position:relative;z-index:2;top:auto;right:auto;order:2;
+  /* order:2 legger boksen nederst i heroen, margin:0 auto sentrerer den, og den
+     negative bunnmargen lar den henge ned OVER kanten mot seksjonen under —
+     det gir mer synlig fotografi. Krever overflow:visible på .hero (som ellers
+     ville klippet den) og z-index over .services-band, som males etter. */
+  .hero{overflow:visible}
+  .vaer-boks.pa-bilde{position:relative;z-index:3;top:auto;right:auto;order:2;
     width:calc(100% - 2 * var(--pad));max-width:300px;
-    margin:0 auto;padding:.8rem .85rem}
-  .hero-content{padding-bottom:2rem}
+    margin:2rem auto -4.5rem;padding:.8rem .85rem}
+  .hero-content{padding-bottom:1.5rem}
   /* Komprimert på liten skjerm — boksen skal ikke spise heroen.
      🔴 min-height på cellene MÅ følge den komprimerte høyden: skjelettet har
      tomme celler, og faller de sammen mens de fylte ikke gjør det, er
