@@ -494,9 +494,19 @@ LocalBusiness eller Organization uansett hvordan schema settes opp. Aa legge
 det inn gir null gevinst og kan trigge manuell straff. Stjernene vises i
 lokalsoeket rett fra profilen. Gjeninnfoer ikke schema her.
 
-**Aapent:** lenken «Se alle omtaler paa Google» peker paa et Maps-soek etter
-«Trygt Overvann Bergen». Den lander riktig, men er ikke den presise
-profil-lenken — bytt den naar delelenken fra profilen er for haanden.
+### Lenker til Google-profilen (14.09.2026)
+
+Profilen har en kort delelenke med en fast id. Samme id gir to innganger:
+
+    https://g.page/r/Cb4FJteZWBr6EBM           -> profilen (brukt i .rev-link)
+    https://g.page/r/Cb4FJteZWBr6EBM/review    -> aapner anmeldelsesdialogen
+
+Den andre er den Google gir under «Faa flere anmeldelser», og er den som skal
+sendes til kunder — i e-post etter levert oppdrag, eller som QR-kode. Begge er
+verifisert 14.09: 302 til Maps, sluttstatus 200. Maps' interne id for
+oppfoeringen er `0x4739d5f9a0074c4f:0xfa1a5899d72605be`.
+
+Lenkene er offentlige delelenker, ikke hemmeligheter.
 
 ## Personinformasjon og priser (07.09.2026)
 
