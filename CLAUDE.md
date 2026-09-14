@@ -51,12 +51,27 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    samme hensyn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
 3. **Person `sameAs`** — LinkedIn (kolliderer med punkt 2), Proff-rolle, eller
    ingen. Person-noden har i dag null ekstern forankring.
-4. **M1: Google Business Profile + NAP-siteringer** (Proff/1881/Gulesider).
-   Navnespørsmålet er avklart 02.09. Gjenstår adressemodus — GBP krever ekte
-   adresse til verifisering selv i tjenesteområde-modus, som kolliderer med M4
-   — og selve opprettelsen. Gated på punkt 2.
+4. **M1: NAP-siteringer** (Proff/1881/Gulesider). 🔴 Google Business Profile
+   ER OPPRETTET og Bengt er administrator — rettet 14.09.2026, dokumentet sa
+   fram til da at den gjensto. Profilen heter «Trygt Overvann», har 5,0 av 2
+   anmeldelser, og Google melder «Fyll ut informasjon» på profilstyrken.
+   Gjenstår: Proff og 1881 viser fortsatt «Trygt Overvann AS», så NAP er ikke
+   konsistent med profilen. Punkt 2 gater ikke lenger opprettelsen — den er
+   gjort — men COWI-vurderingen av hvor synlig virksomheten skal være, står.
 
-5. **`--ink3` stryker på WCAG AA** (funnet 12.09). 3,95:1 mot hvitt, brukt som
+   🔴 Lærdom: jeg avviste at profilen fantes fordi dette dokumentet sa det og
+   et websøk ikke fant Maps-oppføringen. Ingen av delene er bevis. Spør Bengt
+   om ting som lever UTENFOR kodebasen — dokumentet speiler ikke hva han har
+   gjort i en nettleser.
+
+5. **`.section-eyebrow` stryker på WCAG AA** (funnet 14.09). Amber `#c07a2f`
+   mot papir gir **3,07:1**, kravet er 4,5:1. Tre forekomster, alle på
+   forsiden: «Tjenester», «Faglig tyngde», «Omtaler». Stjernene i omtale-
+   seksjonen bruker samme farge, men er grafikk og klarer kravet på 3,0:1.
+   Beholdt i amber bevisst — én avvikende eyebrow ville sett ut som en feil.
+   Søster til punkt 6; kontrastrevisjonen 07.09 fanget ingen av dem.
+
+6. **`--ink3` stryker på WCAG AA** (funnet 12.09). 3,95:1 mot hvitt, brukt som
    etikettfarge over HELE nettstedet: `.section-eyebrow`, `.svc-related-title`,
    `.breadcrumb`, `.contact-detail`, `.hero-stat-lbl` m.fl. Værwidgeten unngår
    den bevisst (bruker `--ink2`, 11:1), men resten av nettstedet gjør ikke det.
@@ -448,8 +463,40 @@ Bunnteksten er identisk paa alle 13 sider og skal lyde:
     © 2026 OhJoy Ventures AS · org.nr. 932 480 956.
     Trygt Overvann™ er et varemerke som drives av OhJoy Ventures AS.
 
-Gjenstaar for M1: Google Business Profile (tjenesteomraade-modus, ikke synlig
-adresse — se M4) og NAP-konsistente siteringer. Krever Bengts handling.
+Gjenstaar for M1: NAP-konsistente siteringer. Google Business Profile er
+opprettet (se punkt 4 oeverst) — men Proff og 1881 foerer fortsatt «Trygt
+Overvann AS», som ikke stemmer med profilnavnet «Trygt Overvann».
+
+## Kundeomtaler paa forsiden (14.09.2026)
+
+Seksjonen `.reviews-band` ligger mellom klimafeltet og CTA-en paa forsiden.
+Ren HTML og CSS, ingen JavaScript og ingen API — omtalene er skrevet inn som
+tekst, hentet manuelt fra Google Business Profile.
+
+**Legge til en ny omtale:** kopier en `<figure class="rev-card">`-blokk i
+`index.html` og fyll inn sitat, navn og dato. Oppdater ogsaa tallene i
+`.rev-score` («5,0» og «av 2 anmeldelser»). Karusellen er CSS scroll-snap og
+trenger ingen endring — fra to kort og oppover blir raden swipe-bar av seg
+selv, og `:only-child`-regelen som smalner kortet slaar seg av automatisk.
+
+🔴 **Sitatene gjengis ordrett.** Kunden skrev «Trygt Overvann AS» i august
+2025, og det skal staa. En navnesveip over nettstedet maa ikke treffe teksten
+i `.rev-quote` — det ligger en HTML-kommentar i `index.html` som sier fra.
+Ordlyd, tegnsetting og manglende sluttpunktum er kundens, ikke vaare.
+
+**Ikke filtrer paa stjerner.** Markedsfoeringsloven forbyr aa vise et selektivt
+utvalg som om det var representativt. Vises faerre enn alle, maa tallet i
+`.rev-score` fortsatt oppgi totalen.
+
+**Ingen Review- eller AggregateRating-schema.** Google regner omtaler om egen
+virksomhet paa eget nettsted som self-serving og viser ingen stjerner for
+LocalBusiness eller Organization uansett hvordan schema settes opp. Aa legge
+det inn gir null gevinst og kan trigge manuell straff. Stjernene vises i
+lokalsoeket rett fra profilen. Gjeninnfoer ikke schema her.
+
+**Aapent:** lenken «Se alle omtaler paa Google» peker paa et Maps-soek etter
+«Trygt Overvann Bergen». Den lander riktig, men er ikke den presise
+profil-lenken — bytt den naar delelenken fra profilen er for haanden.
 
 ## Personinformasjon og priser (07.09.2026)
 
