@@ -112,6 +112,26 @@ a{color:inherit}
 .split-climate .split-content{background:var(--petro);order:1}
 .split-climate .split-img{order:2}
 
+/* OMTALER */
+.reviews-band{background:var(--paper);padding:clamp(4rem,8vw,7rem) 0;border-top:1px solid var(--rule)}
+.reviews-band .inner{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.rev-head{display:flex;flex-wrap:wrap;gap:1.25rem 2rem;align-items:flex-end;justify-content:space-between}
+.rev-score{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rev-score b{font-family:var(--serif);font-size:1.5rem;font-weight:400;letter-spacing:0;color:var(--ink);line-height:1}
+.rev-stars{display:flex;gap:2px}
+.rev-stars svg{width:15px;height:15px;fill:var(--amber);display:block}
+.rev-track{display:flex;margin-top:clamp(2rem,4vw,3.5rem);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.rev-card{background:var(--white);padding:2.25rem 2rem;scroll-snap-align:start;flex:1 0 min(100%,420px);display:flex;flex-direction:column;gap:1.25rem;min-height:200px}
+.rev-card+.rev-card{border-left:1px solid var(--rule)}
+.rev-quote{font-family:var(--serif);font-size:1.12rem;line-height:1.6;color:var(--ink);max-width:54ch}
+.rev-card:only-child{flex:0 1 min(100%,50rem)}
+.rev-card:only-child .rev-quote{font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.6;max-width:none}
+.rev-meta{margin-top:auto;display:flex;flex-direction:column;gap:.2rem}
+.rev-name{font-size:.88rem;font-weight:500;color:var(--ink)}
+.rev-date{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.rev-link{margin-top:clamp(1.5rem,3vw,2.25rem);display:inline-block;font-size:.85rem;color:var(--petro);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:border-color .2s}
+.rev-link:hover{border-bottom-color:var(--petro)}
+
 /* CTA */
 .cta-band{background:var(--white);padding:clamp(4rem,8vw,7rem) 0;border-top:1px solid var(--rule)}
 .cta-band .inner{max-width:var(--max);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
