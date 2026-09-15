@@ -26,7 +26,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-09-12)
+## SEO-status (sist oppdatert 2026-09-14)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -46,9 +46,12 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    trygtovervann.no via DNS TXT og send inn `/sitemap.xml`. Verifisert 11.09:
    sonens eneste TXT er fortsatt SPF — ingen verifisering finnes. Til dette er
    på plass måles **ingenting** av ytelses- og schema-arbeidet 08.–09.09.
-2. 🔴 **COWI-beslutningen** — se «AAPENT» under. Den gater M1: en Business
-   Profile er langt mer synlig enn LinkedIn-lenken som alt ble utelatt av
-   samme hensyn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
+2. 🔴 **COWI-beslutningen** — se «AAPENT» under. Den gater ikke lenger
+   OPPRETTELSEN av Google Business Profile; den er gjort (se punkt 4). Den
+   gater fortsatt hva som får stå der: profilbeskrivelsen er skrevet 14.09
+   uten uavhengighetspåstand og uten COWI-omtale nettopp av dette hensynet,
+   og en Business Profile er langt mer synlig enn LinkedIn-lenken som alt ble
+   utelatt av samme grunn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
 3. **Person `sameAs`** — LinkedIn (kolliderer med punkt 2), Proff-rolle, eller
    ingen. Person-noden har i dag null ekstern forankring.
 4. **M1: NAP-siteringer** (Proff/1881/Gulesider). 🔴 Google Business Profile
