@@ -55,12 +55,9 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    sitemap sendt inn der også. Data bygges opp fra nå — Google 2–3 døgn, Bing
    opptil 48 t. Første nyttige sjekk: Indeksering → Sider (hvilke er indeksert,
    feil) og Ytelse (søkeord, klikk) om ca. en uke.
-2. 🔴 **COWI-beslutningen** — se «AAPENT» under. Den gater ikke lenger
-   OPPRETTELSEN av Google Business Profile; den er gjort (se punkt 4). Den
-   gater fortsatt hva som får stå der: profilbeskrivelsen er skrevet 14.09
-   uten uavhengighetspåstand og uten COWI-omtale nettopp av dette hensynet,
-   og en Business Profile er langt mer synlig enn LinkedIn-lenken som alt ble
-   utelatt av samme grunn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
+2. ✅ **COWI/uavhengighet: AVGJORT 29.09** — påstandene står, konflikter
+   håndteres ved å trekke seg (se «AVGJORT» under). Google-profilen er ikke
+   lenger sperret av dette.
 
    🔴 **Profilbeskrivelsen ligger i `tasks/gbp-beskrivelse.md`** (skrevet på
    nytt 29.09, 713 tegn). 14.09-versjonen ble aldri lagret — den sto bare i
@@ -151,59 +148,17 @@ hos COWI», og Person-noden hadde `alumniOf: COWI`. Begge er rettet:
 
 Skriv **aldri** COWI-omtalen om til fortid igjen.
 
-### 🔴 AAPENT: skal ansettelsen opplyses eksplisitt?
+### ✅ AVGJORT 29.09.2026: uavhengighetspåstandene står
 
-Rettingen over fjernet det som var **uriktig**. Den tar ikke stilling til om
-det loepende ansettelsesforholdet skal **opplyses**. Det er Bengts beslutning,
-ikke en opprydding — den beroerer baade arbeidsgiverforholdet og habilitet.
+Bengt: uavhengighet vurderes **per sak**. Er COWI, Sweco eller andre han har
+bånd til involvert, trekker han seg — han sitter aldri på begge sider av
+bordet. Da er det ingen konflikt, og «100 % Uavhengig», «uavhengig rådgivning
+uten interessekonflikter» og habilitetssvaret på /for-advokater/ **står som
+de er**. Ansettelsen i COWI omtales ikke på nettsiden.
 
-Hvorfor det henger sammen med resten av sida:
-
-- Forsiden har **«100 % Uavhengig»** som noekkeltall (to steder), /om/ sier
-  «uavhengig raadgivning **uten interessekonflikter**» og «ingen binding til
-  leverandoerer eller utbyggere». Alle er absolutte.
-- Habilitetssvaret paa /for-advokater/ er formulert i **fortid**: «Hvis jeg
-  *tidligere* har vaert involvert … Habilitetserklaering som beskriver
-  eventuelle *tidligere* forbindelser.» Et loepende ansettelsesforhold hos et
-  av landets stoerste raadgivende ingenioerfirmaer er en annen og sterkere
-  kategori enn en historisk binding — og COWI prosjekterer VA og overvann i
-  stort omfang, saa sannsynligheten for beroering i en konkret sak er reell.
-- Uavhengig kontroll etter SAK10 har uavhengighet som **vilkaar**, ikke som
-  markedsfoeringspoeng.
-- Google Business Profile (M1) er langt mer synlig enn LinkedIn-lenken som
-  allerede ble utelatt av COWI-hensyn.
-
-Det som skader er ikke konflikten — den haandteres ved aa takke nei. Det er
-**rekkefoelgen**: at motparten oppdager ansettelsen etter aa ha lest nettsida.
-Da handler saken om hvorfor det sto som det sto.
-
-**Presisering som avgjoer tyngden i dette (utledet 09.09):** det finnes to
-slags sakkyndige, og Bengt er stort sett den andre.
-
-- *Rettsoppnevnt sakkyndig:* habilitetsreglene gjelder formelt — tvisteloven
-  § 25-3 viser til domstolloven, der § 108 er sekkebestemmelsen: «saeregne
-  omstendigheter … skikket til aa svekke tilliten til hans uhildethet». Merk
-  standarden: den spoer ikke om han VAR paavirket, men om omstendighetene er
-  EGNET TIL aa svekke tilliten. En tilsynelatende-standard.
-- *Privat engasjert sakkyndig* — som er det /for-advokater/ selger, oppdrag
-  fra advokater og forsikringsselskap. Her finnes **ingen formell
-  habilitetsregel** som kan diskvalifisere ham.
-
-Det siste hoeres beskyttende ut, men er det motsatte: finnes det ingen regel
-som diskvalifiserer, finnes det heller ingen prosedyre som RENVASKER. Retten
-staar fritt i bevisvurderingen. Da er tilknytning og troverdighet ikke et
-formelt spoersmaal ved siden av saken — de er hele spoersmaalet om hva
-rapporten er verdt.
-
-Derfor er den kommersielle risikoen stoerre enn den rettslige, og den ligger
-i KANALEN, ikke i saken: advokaten som engasjerte ham blir overrumplet i
-retten foran sin egen klient. Han ringer ikke igjen, og advokater snakker
-sammen. Bengt er ikke jurist paa dette punktet, og beslutningen boer tas med
-en advokat han allerede jobber med — saerlig ordlyden i habilitetserklaeringen,
-som i dag bare dekker TIDLIGERE bindinger.
-
-Ikke endre «100 % Uavhengig», habilitetssvaret eller GBP-planen uten at Bengt
-har tatt denne beslutningen.
+🔴 Ikke ta dette opp som funn eller «åpen beslutning» igjen. Den tidligere
+analysen (sakkyndigroller, tvisteloven § 25-3, domstolloven § 108) ligger i
+`docs/endringslogg.md`, 29.09.2026.
 
 ## SEO/GEO-revisjon 08.09.2026 — ytelse og bildehaandtering
 

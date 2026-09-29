@@ -10,10 +10,10 @@ Trygt Overvann™ er et rådgivningsfirma i Bergen innen vannrelatert klimarisik
 
 ## Hva teksten bevisst IKKE sier
 
-- **Ingen uavhengighetspåstand om firmaet og ingen COWI-omtale** — GBP er
-  sperret flate til COWI-beslutningen er tatt (se CLAUDE.md, «Superlativ og
-  COWI-omtale»). «Uavhengig kontroll etter SAK10» står fordi det er navnet på
-  en lovregulert tjeneste.
+- **Ingen COWI-omtale.** Uavhengighet er AVGJORT 29.09 (påstandene står på
+  nettsiden, konflikter håndteres ved å trekke seg), så profilen er ikke lenger
+  sperret — teksten nevner det bare ikke. «Uavhengig kontroll etter SAK10» er
+  tjenestenavnet.
 - **Ingen detaljprosjektering / IG, ingen CAD/BIM, ingen PRO-ansvar** —
   omfanget fra 29.09 (CLAUDE.md, «Tjenesteomfang»).
 - **Ingen tiltaksklasse 3, ingen «godkjent», ingen DiBK** — ingen sentral
@@ -23,4 +23,3 @@ Trygt Overvann™ er et rådgivningsfirma i Bergen innen vannrelatert klimarisik
 ## Oppdater når
 
 - TK3 er på plass → «i tiltaksklasse 1, 2 og 3». Samme dag som nettsiden.
-- COWI-beslutningen er tatt → vurder om uavhengighet kan nevnes.
