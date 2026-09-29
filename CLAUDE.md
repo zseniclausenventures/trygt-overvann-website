@@ -48,8 +48,13 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    `google-site-verification=PwjC7R-…-4p8Tk` (forsvinner den, mister vi
    eierskapet i Search Console) og SPF `v=spf1 include:_spf.mx.cloudflare.net ~all`
    (e-postvideresendingen). Verifisert mot 1.1.1.1 og 8.8.8.8.
-   Gjenstår: sitemap sendt inn i Search Console, og Bing Webmaster (importer
-   fra Search Console). Data bygges opp fra nå — første tall etter noen døgn.
+   **Sitemap sendt inn 29.09: «Fullført», 13 oppdagede sider** (alle).
+   Merk: domeneeiendom krever FULL adresse `https://trygtovervann.no/sitemap.xml`
+   — bare `sitemap.xml` gir «Ugyldig adresse».
+   **Bing Webmaster: importert fra Search Console 29.09** (ingen egen DNS-post),
+   sitemap sendt inn der også. Data bygges opp fra nå — Google 2–3 døgn, Bing
+   opptil 48 t. Første nyttige sjekk: Indeksering → Sider (hvilke er indeksert,
+   feil) og Ytelse (søkeord, klikk) om ca. en uke.
 2. 🔴 **COWI-beslutningen** — se «AAPENT» under. Den gater ikke lenger
    OPPRETTELSEN av Google Business Profile; den er gjort (se punkt 4). Den
    gater fortsatt hva som får stå der: profilbeskrivelsen er skrevet 14.09
