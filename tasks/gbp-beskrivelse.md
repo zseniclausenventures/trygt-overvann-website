@@ -8,6 +8,16 @@ Beskrivelse.
 Trygt Overvann™ er et rådgivningsfirma i Bergen innen vannrelatert klimarisiko, med oppdrag i hele Norge. Vi leverer overvannsrådgivning og VA-rammeplaner til reguleringsplan, og VA- og overvannsprosjektering til rammesøknad. Vi utfører uavhengig kontroll etter SAK10 av VA- og overvannsanlegg i tiltaksklasse 1 og 2, både av prosjektering og utførelse. I tillegg utarbeider vi flom- og klimatilpasningsvurderinger, vurderinger av havnivåstigning og stormflo, klimarisikoanalyser (CRVA) etter EU-taksonomien og BREEAM-NOR-dokumentasjon for LE 07 og LE 08. For advokater og forsikringsselskap leverer vi sakkyndige rapporter i vannrelaterte tvister. Trygt Overvann™ er et varemerke som drives av OhJoy Ventures AS.
 ```
 
+## Slik kommer Bengt inn i profilen
+
+1. google.com, innlogget med kontoen som administrerer profilen (sjekk det
+   runde bildet øverst til høyre; bytt konto der om nødvendig).
+2. Søk **min bedrift** → administrasjonspanelet for Trygt Overvann øverst.
+   (Alternativ: business.google.com → «Administrer nå».)
+3. **Rediger profil** → fanen **Om** → blyanten ved **Beskrivelse** → lim inn →
+   **Lagre**. Google godkjenner, kan ta noen timer.
+Vises ikke panelet: feil Google-konto — bytt og søk igjen.
+
 ## Hva teksten bevisst IKKE sier
 
 - **Ingen COWI-omtale.** Uavhengighet er AVGJORT 29.09 (påstandene står på
