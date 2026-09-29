@@ -42,10 +42,14 @@ Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deplo
 
 Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
 
-1. **Search Console + Bing Webmaster (HØYEST, blokkerer måling).** Verifiser
-   trygtovervann.no via DNS TXT og send inn `/sitemap.xml`. Verifisert 11.09:
-   sonens eneste TXT er fortsatt SPF — ingen verifisering finnes. Til dette er
-   på plass måles **ingenting** av ytelses- og schema-arbeidet 08.–09.09.
+1. **Search Console: domeneeiendom BEKREFTET 29.09.2026** (Bengts Google-konto,
+   metode «Domenenavnleverandør» via Cloudflares engangsgodkjenning).
+   🔴 **Apex har nå TO TXT-poster — fjern ingen av dem:**
+   `google-site-verification=PwjC7R-…-4p8Tk` (forsvinner den, mister vi
+   eierskapet i Search Console) og SPF `v=spf1 include:_spf.mx.cloudflare.net ~all`
+   (e-postvideresendingen). Verifisert mot 1.1.1.1 og 8.8.8.8.
+   Gjenstår: sitemap sendt inn i Search Console, og Bing Webmaster (importer
+   fra Search Console). Data bygges opp fra nå — første tall etter noen døgn.
 2. 🔴 **COWI-beslutningen** — se «AAPENT» under. Den gater ikke lenger
    OPPRETTELSEN av Google Business Profile; den er gjort (se punkt 4). Den
    gater fortsatt hva som får stå der: profilbeskrivelsen er skrevet 14.09
