@@ -544,6 +544,14 @@ Civil 3D-modell med hoeydekoter og kumkoordinater, og leveringstid for
 detaljprosjektering. Tjenestekortet paa forsiden og /tjenester/ og VA-linja i
 llms.txt er rettet tilsvarende.
 
+🔴 **Ingen CAD/BIM og ingen ansvarsrett som prosjekterende** (Bengt 29.09):
+uten detaljprosjektering brukes hverken CAD eller BIM — FAQ-en «Hvilket CAD- og
+BIM-format leverer dere?» er fjernet, og «BIM/IFC» er tatt ut av
+koordinerings-svaret. Rammeplan og rammesoeknad leveres UTEN ansvarsrett og
+ansvarserklaering. Ansvarsrett erklaeres KUN som **uavhengig kontrollerende**
+— aldri «ansvarlig prosjekterende (PRO)» eller «ansvarlig kontrollerende
+(KPR/KUT)». Ikke gjeninnfoer noen av formuleringene.
+
 Ogsaa fjernet (runde 2, samme dag): omlegging og sanering av eksisterende
 ledningsnett (baade «Typiske prosjekter» og «Naar trenger du dette?»).
 FAQ-en om koordinering med andre fag er BEHOLDT, men svaret er begrenset til
