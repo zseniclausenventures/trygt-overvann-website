@@ -129,6 +129,12 @@ Funksjonen kan prøves på preview før produksjon:
 Deployen svarer med et preview-alias (`https://<hash>.trygt-overvann-website.pages.dev`).
 Det er ikke produksjon. Verifiser alltid mot trygtovervann.no.
 
+🔴 **Produksjon kan henge noen sekunder etter «Deployment complete».** 29.09.2026
+ga første henting rett etter deploy GAMMEL HTML (`cf-cache-status: DYNAMIC`, så
+det er ikke cache), mens preview-aliaset allerede var nytt. Andre henting var
+riktig. Faar du gammelt innhold: sammenlign med preview-aliaset og hent paa nytt
+med `?cb=$RANDOM` foer du konkluderer med at deployen feilet.
+
     for u in / /om/ /kontakt/ /for-advokater/ /tjenester/ \
              /tjenester/overvannsradgivning/ /tjenester/va-prosjektering/ \
              /tjenester/klimatilpasning/ /tjenester/uavhengig-kontroll/ \
