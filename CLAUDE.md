@@ -511,7 +511,16 @@ oppfoeringen er `0x4739d5f9a0074c4f:0xfa1a5899d72605be`.
 
 Lenkene er offentlige delelenker, ikke hemmeligheter.
 
-## Tjenesteomfang VA: kun rammeplan og rammesoeknad (Bengts avgjoerelse 29.09.2026)
+## Tjenesteomfang: prosjektering kun til reguleringsplan og rammesoeknad (Bengts avgjoerelse 29.09.2026)
+
+🔴 **Gjelder ALL prosjektering — VA og overvann.** Kun til reguleringsplan og
+rammesoeknad, aldri til igangsettingstillatelse (IG). Overvannssiden sier det
+naa i meta-beskrivelse, ingress og innledning; leveranselista sier
+«til reguleringsplan og rammesoeknad», og FAQ-en om aa ta over prosjekter
+sier «saa lenge prosjektet er i regulerings- eller rammesoeknadsfasen» (ikke
+lenger «overvannsdokumentasjon foer ferdigattest»). BREEAM-siden: LOD-tiltak
+er «Dimensjonering», ikke prosjektering. Tjenestenavnet «Overvannsraadgivning
+og prosjektering» er BEHOLDT — det staar i menyer paa alle 14 sider.
 
 VA-prosjektering tilbys **kun** som VA-rammeplan for reguleringsformaal og
 VA-prosjektering til rammesoeknad — vann-, spillvann- og overvannsledninger paa
