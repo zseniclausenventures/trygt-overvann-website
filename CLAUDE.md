@@ -62,7 +62,10 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    🔴 **Profilbeskrivelsen ligger i `tasks/gbp-beskrivelse.md`** (skrevet på
    nytt 29.09, 713 tegn). 14.09-versjonen ble aldri lagret — den sto bare i
    samtalen, selv om handoffen og memory påsto at den lå her. Lagre alltid
-   tekst til eksterne flater i repoet. Gjenstår for Bengt: lime den inn, og
+   tekst til eksterne flater i repoet. **Limt inn 29.09** (status «Venter» på
+   Googles vurdering). Profilnavnet er i dag **«Trygt Overvann TM»** (bokstaver,
+   ikke symbol); Bengts bytte til «Trygt Overvann™» venter og er meldt som
+   forsinket — faller det, er «Trygt Overvann» det trygge valget. Gjenstår:
    sjekke tjenestelista i profilen og hos Proff/1881 for detaljprosjektering
    og tiltaksklasse 3.
 3. **Person `sameAs`** — LinkedIn (kolliderer med punkt 2), Proff-rolle, eller
