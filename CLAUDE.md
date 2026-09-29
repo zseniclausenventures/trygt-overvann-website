@@ -511,6 +511,26 @@ oppfoeringen er `0x4739d5f9a0074c4f:0xfa1a5899d72605be`.
 
 Lenkene er offentlige delelenker, ikke hemmeligheter.
 
+## Tjenesteomfang VA: kun rammeplan og rammesoeknad (Bengts avgjoerelse 29.09.2026)
+
+VA-prosjektering tilbys **kun** som VA-rammeplan for reguleringsformaal og
+VA-prosjektering til rammesoeknad — vann-, spillvann- og overvannsledninger paa
+de to nivaaene. **Ingen detaljprosjektering til igangsettingstillatelse (IG).**
+
+Fjernet fra /tjenester/va-prosjektering/ og skal ikke tilbake: arbeidstegninger,
+«fra forprosjekt/tidlig fase til arbeidstegninger», «komplett VA-prosjektering»,
+«god byggbarhet», koordinering med kommunalt ledningsnett, paakoblingstillatelser,
+grøfteprofiler, kumtegninger og tilkoblingspunkter, oljeutskillere og
+forbehandlingsanlegg (ogsaa som «typisk prosjekt»), NS 3420 (kontraktsgrunnlag),
+Civil 3D-modell med hoeydekoter og kumkoordinater, og leveringstid for
+detaljprosjektering. Tjenestekortet paa forsiden og /tjenester/ og VA-linja i
+llms.txt er rettet tilsvarende.
+
+Samme regel gjelder paa tvers: «avslutte detaljprosjektering» er tatt ut av
+overvannssidens FAQ, og «detaljprosjekt» av overvannslinja i llms.txt.
+FAQ-svaret om VA-rammeplan paa overvannssiden («danner grunnlag for senere
+detaljprosjektering») er beholdt — det beskriver neste fase, ikke en leveranse.
+
 ## Personinformasjon og priser (07.09.2026)
 
 - **Bengt er ingenioer, ikke sivilingenioer.** Tittelen sto 32 steder, inkludert
