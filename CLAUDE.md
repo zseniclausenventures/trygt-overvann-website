@@ -26,7 +26,7 @@ To lærdommer for neste gang:
 - Cloudflares e-postobfuskering roterer et token ved hver forespørsel, så to hentinger av
   samme uendrede side gir ulik hash. Bruk diff, ikke hash, når du verifiserer mot prod.
 
-## SEO-status (sist oppdatert 2026-09-14)
+## SEO-status (sist oppdatert 2026-09-29)
 
 Full SEO-audit gjennomført (claude-seo). Health score ~87/100. Fullført, deployet og live:
 - K1: tre brutte innholdsbilder rettet (filer lagt til assets/, src URL-encodet).
@@ -52,6 +52,13 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    uten uavhengighetspåstand og uten COWI-omtale nettopp av dette hensynet,
    og en Business Profile er langt mer synlig enn LinkedIn-lenken som alt ble
    utelatt av samme grunn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
+
+   🔴 **Profilbeskrivelsen fra 14.09 er IKKE lagret noe sted** (funnet 29.09).
+   Handoffen 14.09 og memory påsto at ordlyden sto her i CLAUDE.md — den
+   gjorde aldri det; den ble bare levert i samtalen. Er den ikke limt inn i
+   profilen, må den skrives på nytt — og da med omfanget fra 29.09: ingen
+   detaljprosjektering, ingen tiltaksklasser, ingen «godkjent». Sjekk samtidig
+   tjenestelista i profilen og hos Proff/1881 for de samme løftene.
 3. **Person `sameAs`** — LinkedIn (kolliderer med punkt 2), Proff-rolle, eller
    ingen. Person-noden har i dag null ekstern forankring.
 4. **M1: NAP-siteringer** (Proff/1881/Gulesider). 🔴 Google Business Profile
