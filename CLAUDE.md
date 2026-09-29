@@ -83,20 +83,15 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    om ting som lever UTENFOR kodebasen — dokumentet speiler ikke hva han har
    gjort i en nettleser.
 
-5. **`.section-eyebrow` stryker på WCAG AA** (funnet 14.09). Amber `#c07a2f`
-   mot papir gir **3,07:1**, kravet er 4,5:1. Tre forekomster, alle på
-   forsiden: «Tjenester», «Faglig tyngde», «Omtaler». Stjernene i omtale-
-   seksjonen bruker samme farge, men er grafikk og klarer kravet på 3,0:1.
-   Beholdt i amber bevisst — én avvikende eyebrow ville sett ut som en feil.
-   Søster til punkt 6; kontrastrevisjonen 07.09 fanget ingen av dem.
-
-6. **`--ink3` stryker på WCAG AA** (funnet 12.09). 3,95:1 mot hvitt, brukt som
-   etikettfarge over HELE nettstedet: `.section-eyebrow`, `.svc-related-title`,
-   `.breadcrumb`, `.contact-detail`, `.hero-stat-lbl` m.fl. Værwidgeten unngår
-   den bevisst (bruker `--ink2`, 11:1), men resten av nettstedet gjør ikke det.
-   Kontrastrevisjonen 07.09 fanget den ikke opp — den lette etter usynlig tekst,
-   ikke etter tekst som er for lys. Fiksen er én variabel, men den endrer
-   utseendet på alle 14 sider, så det er Bengts valg.
+5. ✅ **Kontrastfeilene RETTET 29.09.2026** (Bengt: «fiks det»). Nye tokens i
+   `styles.css`, bumpet til `?v=20260929a` på alle 14 sider:
+   - `--ink3` `#82807a` → **`#6e6c67`**: 3,51:1 på papir (verre enn dokumentert
+     3,95 på hvitt) → **4,66 papir / 5,24 hvit**. Alle 18 bruk er på lys bunn.
+   - `--amber-tekst` **`#986025`** for `.section-eyebrow` og `.c-label` (samme
+     feil på /om/, /kontakt/, /tjenester/): 3,07 → **4,62 papir / 5,20 hvit**.
+   - `--amber-lys` **`#deae7a`** for `.split-eyebrow` på petrol: 2,67 → **4,60**.
+   - `--amber` er URØRT — brukes også som grafikk (stjerner, kulepunkter,
+     kantlinjer), der 3:1 holder. Ikke bytt tekst tilbake til `--amber`.
 
 Lav prioritet: render-blocking Google Fonts (tre familier, ~870 ms på LCP-stien
 målt 08.09), utbygging av /om/ og /tjenester/ med fagstoff (krever Bengt),
@@ -712,8 +707,7 @@ posisjonert overlay.
 Restfunn, ikke rettet (kosmetisk, forelaa foer denne oekten):
 - `.svc-arr` — «→» i tjenestekortene, `--rule` paa hvitt = 1,49:1. 12 steder
   paa forsiden og /tjenester/. Dekorativt, men under 3:1.
-- `.split-eyebrow` «Klimatilpasning» paa forsiden — amber paa petrol = 2,67:1.
-  Ekte tekst under WCAG AA (4,5:1).
+- ~~`.split-eyebrow`~~ rettet 29.09 med `--amber-lys` (4,60:1).
 
 ## E-post: Cloudflare Email Routing (satt opp 02.09.2026)
 
