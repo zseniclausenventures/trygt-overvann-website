@@ -93,18 +93,49 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    - `--amber` er URØRT — brukes også som grafikk (stjerner, kulepunkter,
      kantlinjer), der 3:1 holder. Ikke bytt tekst tilbake til `--amber`.
 
-Lav prioritet: render-blocking Google Fonts (tre familier, ~870 ms på LCP-stien
-målt 08.09), utbygging av /om/ og /tjenester/ med fagstoff (krever Bengt),
-`.svc-arr`/`.split-eyebrow`-kontrast, sticky `.aside-block`, wrangler 4.71 →
-4.129, `assets/nav.js` mangler `?v=`-versjonering.
+Lav prioritet: utbygging av /om/ og /tjenester/ med fagstoff (krever Bengt).
+Resten av lavprioritetslista er gjort 29.09 — se «Skrifter, versjoner og deploy».
 
-🔴 **Versjonsbumping er manuell og gjelder nå minst ni filer.** 12.09 ble
-`styles.css` bumpet mens `vaer.js` ble glemt, og kanten serverte gammel kode i
-prod. Ingenting fanger det automatisk — `scripts/oppdater-datoer.sh` rører ikke
-`?v=`. Bump ALLE endrede assets i samme slengen. (404 noindex, URL-encoding, titler, `lang="nb"`, datoer og og-bilder er
+(404 noindex, URL-encoding, titler, `lang="nb"`, datoer og og-bilder er
 gjort — se «Bolk C-F GJORT».)
 
-Merk: interne docs (tasks/, handoff) ligger i repoets egen `tasks/`, men deployes IKKE til web-root — rsync ekskluderer .git/DEPLOY.md/README.md/CLAUDE.md/AGENTS.md/tasks/.gitignore/.wrangler (se DEPLOY.md).
+## Skrifter, versjoner og deploy (29.09.2026)
+
+**Deploy er én kommando: `scripts/deploy.sh`** (eller `scripts/deploy.sh preview`).
+Den setter datoer og versjonsnumre, stopper ved ucommittet/upushet arbeid,
+kopierer kun nettsidefiler, stopper ved uventede filer, deployer og sjekker alle
+ruter live. Se DEPLOY.md.
+
+🔴 **`docs/` ble IKKE utelatt av den gamle rsync-oppskriften.** Mappa kom 29.09
+(med habilitetsanalysen) og ville gått ut på nett ved neste deploy. Skriptet
+bruker nå en POSITIV liste (HTML, `assets/`, `functions/`, navngitte rotfiler),
+så en ny intern mappe aldri følger med av seg selv. Ikke gå tilbake til
+utelukkingsliste.
+
+**Versjonsnumre er automatiske:** `scripts/oppdater-versjoner.py` setter
+`?v=<10 tegn av sha256>` på alle lokale CSS-, JS- og ikonlenker ut fra
+innholdet. Ikke bump `?v=` for hånd. Bilder dekkes ikke — de får nytt filnavn
+når innholdet endres (4 timers kant-cache, se under).
+
+**Skriftene ligger på eget domene** (`assets/fonts/`, SIL OFL 1.1, lisens i
+`OFL.txt`) — ingen forespørsler til Google, så besøkendes IP ikke sendes dit.
+Kun latin + latin-ext; nettleseren henter latin-ext bare ved behov.
+`@font-face` står øverst i `styles.css`.
+
+🔴 **Reserveskriften er Georgia skalert til EB Garamonds bredde**
+(`'EB Garamond reserve'`, size-adjust 85,85 % / kursiv 82,6 %). Uten den bryter
+hero-overskriften over tre linjer i Georgia og hopper til to når skriften
+kommer — CLS 0,025 i prod fram til 29.09, nå 0,0001. Forhåndslasting (`preload`)
+ble prøvd og forkastet: skriften kom et halvt sekund tidligere, men siden tegnes
+før uansett, så hoppet ble like stort — og LCP ble 200 ms verre fordi skriften
+konkurrerte med hero-bildet. Byttes skrift eller overskriftstekst vesentlig:
+mål bredden på nytt.
+
+Pila i tjenestekortene (`.svc-arr`) bruker `--ink3` (5,24:1), ikke `--rule`.
+Sidestolpen på /for-advokater/ (`.svc-aside`) er klebrig når vinduet er minst
+760 px høyt — stolpen er 619 px + 84 px toppmarg.
+
+Interne docs (`tasks/`, `docs/`, handoff) deployes IKKE — se over.
 
 Schema-redigering: Organization-noden er duplisert identisk i alle 13 HTML-filer — bruk perl -0777 over alle filer for konsistens, og valider JSON-LD etterpå. NB: escape "@type" som "\@type" i Perl-erstatninger (ellers tolkes @ som array).
 
@@ -214,7 +245,7 @@ utgave):
 - **`apple-touch-icon.png`** (180 px): UGJENNOMSIKTIG hvit — iOS fyller
   gjennomsiktighet med svart. Logoen paa 80 % fordi iOS runder hjoernene.
 - Rotfilene er overskrevet paa samme sti (klienter henter dem der direkte),
-  og lenkene har `?v=20260929`. Endres ikonene igjen: bump `?v=` paa alle 14.
+  og lenkene har `?v=<innholdshash>`, satt automatisk av `scripts/oppdater-versjoner.py`.
 
 ### 🔴 Assets ligger 4 timer paa edge — endre URL, ikke bare fila
 
@@ -229,7 +260,7 @@ DEPLOY.md paastod «1t cache paa /assets/ — deploys vises uten manuell purge»
 begge deler var feil, og er rettet. Keychain-tokenet har ikke purge-tilgang.
 
 **Regel: endrer du innholdet i en assetfil, endre ogsaa URL-en.** Bilder faar
-nytt filnavn, `styles.css` har `?v=AAAAMMDD` som skal bumpes ved CSS-endring.
+nytt filnavn; CSS, JS og ikoner faar `?v=<innholdshash>` automatisk (fra 29.09).
 
 ### Feller ved bildearbeid
 
@@ -644,9 +675,8 @@ rendret side:
    `svc-body`/`svc-sidebar`/`svc-card-contact`/`svc-related`. Bare det siste
    settet fantes i styles.css, saa rutenettet ble aldri opprettet og
    `<aside>` falt ustylet ned under artikkelen. Lagt inn regler for de fire
-   klassene, inkludert i begge media queries. Merk: `.aside-block` er IKKE
-   sticky, slik `.svc-card-contact` er paa tjenestesidene. Hoeyre kolonne staar
-   derfor tom nedover en lang side. Bevisst valgt for aa holde fiksen minimal.
+   klassene, inkludert i begge media queries. Fra 29.09 er hele `.svc-aside`
+   klebrig (over 900 px bredde og 760 px hoeyde), som `.svc-card-contact`.
 
 **Teknikk som fant dem:** kryssjekk av alle `class="..."` i HTML mot alle
 selektorer i styles.css avsloerer markup uten stiler. En klasse uten regel er
@@ -662,10 +692,8 @@ utvidelsen var ikke tilkoblet; dette er et fullverdig alternativ.
 Filtrer bort alt som har en forelder med bakgrunnsbilde eller et absolutt
 posisjonert overlay.
 
-Restfunn, ikke rettet (kosmetisk, forelaa foer denne oekten):
-- `.svc-arr` — «→» i tjenestekortene, `--rule` paa hvitt = 1,49:1. 12 steder
-  paa forsiden og /tjenester/. Dekorativt, men under 3:1.
-- ~~`.split-eyebrow`~~ rettet 29.09 med `--amber-lys` (4,60:1).
+Restfunn: begge rettet 29.09 — `.svc-arr` med `--ink3` (5,24:1),
+`.split-eyebrow` med `--amber-lys` (4,60:1).
 
 ## E-post: Cloudflare Email Routing (satt opp 02.09.2026)
 

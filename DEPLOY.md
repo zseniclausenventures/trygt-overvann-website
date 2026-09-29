@@ -17,7 +17,8 @@ Statisk multi-side nettside, ingen build-steg. Deployes til Cloudflare Pages via
   om et bakgrunnsbilde som var fjernet. Tokenet i Keychain har ikke
   purge-tilgang, så purge må gjøres i dashbordet.
   **Regel: endrer du innholdet i en assetfil, endre også URL-en.** Bilder får
-  nytt filnavn; `styles.css` har `?v=ÅÅÅÅMMDD` som skal bumpes ved CSS-endring.
+  nytt filnavn; CSS, JS og ikoner får `?v=<innholdshash>` automatisk av
+  `scripts/oppdater-versjoner.py` (fra 29.09.2026 — ikke bump for hånd).
 
 ## Innlogging (verifisert 07.09.2026)
 
@@ -75,33 +76,40 @@ Merk ogsaa at Keychain-tokenet `trygtovervann-cf-token` **ikke** har
 Pages-tilgang — det dekker e-post og DNS. Wranglers egen OAuth har
 `pages (write)`; sjekk med `wrangler whoami`.
 
-## Deploy til produksjon (live)
+## Deploy til produksjon (live) — `scripts/deploy.sh` (fra 29.09.2026)
 
     cd ~/ClaudeCode/active/trygt-overvann-website
-    scripts/oppdater-datoer.sh      # sitemap <lastmod> + JSON-LD dateModified fra git-datoer (fra 09.09.2026)
-    git add -A && git commit -m "oppdater nettside" && git push
-    DIST=$(mktemp -d /tmp/tovw-dist.XXXXXX)
-    rsync -a --exclude='.git' --exclude='DEPLOY.md' --exclude='README.md' --exclude='CLAUDE.md' --exclude='AGENTS.md' --exclude='tasks' --exclude='.gitignore' --exclude='.wrangler' --exclude='scripts' ~/ClaudeCode/active/trygt-overvann-website/ "$DIST"/
-    wrangler pages deploy "$DIST" --project-name=trygt-overvann-website --branch=main --commit-dirty=true
+    scripts/deploy.sh preview   # forhåndsvisning, rører ikke live
+    scripts/deploy.sh           # produksjon
 
-Endrer du innholdet i en fil under `assets/`, må URL-en endres (`?v=dato` på
-styles.css, eller nytt filnavn) — kanten cacher 4 t uansett hva `_headers` sier.
+Skriptet gjør i rekkefølge:
+1. `scripts/oppdater-datoer.sh` (sitemap `<lastmod>` + JSON-LD `dateModified`)
+   og `scripts/oppdater-versjoner.py` (`?v=<innholdshash>` på CSS, JS, ikoner).
+2. **Stopper** hvis noe er ucommittet — også endringer steg 1 nettopp gjorde.
+   Commit, push og kjør på nytt. For produksjon stopper det også ved upushede
+   commits: prod skal alltid være en commit som finnes på GitHub.
+3. Kopierer til en fersk `mktemp -d`-mappe med en **positiv liste**: alle
+   `*.html`, `assets/`, `functions/`, og navngitte rotfiler (`_headers`,
+   `_redirects`, ikoner, `robots.txt`, `sitemap.xml`, `llms.txt`). `tasks/`,
+   `docs/`, `scripts/`, `.git/` utelukkes før HTML-regelen.
+4. **Stopper** ved enhver fil uten kjent nettside-endelse (`.md`, `.env`, …)
+   eller hvis en påkrevd fil (404.html, `_redirects`, vaer.js …) mangler.
+5. `wrangler pages deploy`, og for produksjon: alle 16 ruter 200, ukjent sti
+   404, `/api/vaer` svarer JSON.
 
-Kontrollér staging-mappa FØR opplasting — rsync-ekskluderingene er lange og
-lette å brekke ved redigering:
+🔴 **Den gamle oppskriften var en utelukkingsliste, og `docs/` sto ikke på den.**
+Mappa kom 29.09 med interne vurderinger og ville gått ut på nett ved neste
+deploy. Positiv liste betyr at en ny intern mappe aldri følger med av seg selv
+— mens en ny side (ny mappe med `index.html`) gjør det. Ikke gå tilbake.
 
-    for f in DEPLOY.md README.md CLAUDE.md AGENTS.md tasks scripts .git; do
-      [ -e "$DIST/$f" ] && echo "  LEKKASJE: $f" || echo "  ok, ikke med: $f"
-    done
-
-## Test mot preview (rører ikke live)
-Samme kommando, men bytt --branch=main til --branch=tovw-preview.
+Bilder har ingen hash: endrer du et bilde, gi det nytt filnavn — kanten cacher
+4 t uansett hva `_headers` sier.
 
 Staging-mappa lages med `mktemp -d` framfor `rm -rf` paa en fast sti: bash-portvakten
 blokkerer `rm -rf`, og en fersk mappe kan uansett ikke arve rester fra forrige deploy.
 
 ## Viktig
-- Internfiler (DEPLOY.md, README.md, CLAUDE.md, AGENTS.md, tasks/, scripts/, .gitignore, .wrangler) ekskluderes i rsync — skal ikke ut på web.
+- Internfiler (alt som ikke er HTML, `assets/`, `functions/` eller navngitte rotfiler) holdes ute av den positive lista i `scripts/deploy.sh`.
 - _redirects, _headers, 404.html, sitemap.xml, robots.txt og llms.txt MÅ være med.
 - Ikke skru på git-auto-deploy i Cloudflare igjen.
 - Vises ikke en deploy: purge via trygtovervann.no-sonen (Caching, Purge Everything) — og si fra, da ligger det trolig en Cache Rule som overstyrer _headers.
@@ -110,8 +118,8 @@ blokkerer `rm -rf`, og en fersk mappe kan uansett ikke arve rester fra forrige d
 
 Fra 12.09.2026 er nettstedet ikke lenger helt statisk. `functions/api/vaer.js`
 er en Cloudflare Pages Function som henter værvarsel og farevarsler fra MET,
-NVE og Kartverket. Den ligger IKKE i rsync-ekskluderingene og blir derfor med
-i deployen automatisk — wrangler kompilerer den («Compiled Worker successfully»
+NVE og Kartverket. `functions/` står i den positive lista i `scripts/deploy.sh`
+og blir derfor med i deployen — wrangler kompilerer den («Compiled Worker successfully»
 i utdataen). Mangler den linja, er funksjonen ikke med.
 
 🔴 `_redirects` har en catch-all `/* /404.html 404`. Den slår IKKE ut

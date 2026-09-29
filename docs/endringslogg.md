@@ -2,6 +2,23 @@
 
 Daterte notater og bakgrunn flyttet ut av CLAUDE.md.
 
+## 29.09.2026 — skrifter, versjoner og deploy (ettermiddag)
+
+Bengt: «fiks det du kan fikse, gjør mest mulig selv». Gjort, deployet og målt live:
+
+- Google Fonts → egne woff2-filer. Null forespørsler til Google. LCP uendret
+  (målt 3 runder, 4× CPU, 1,6 Mbit/s, 150 ms: prod 2056 ms, ny 2024–2056 ms).
+- Hoppet på forsiden (CLS 0,025, hero-overskriften 3 → 2 linjer ved skriftbytte)
+  fjernet med skalert Georgia som reserve: 0,0001 live. Forhåndslasting prøvd
+  først og tilbakestilt (commit 1eadd5e, revert be39c3b): hoppet ble like stort
+  og LCP 200 ms verre.
+- Automatiske versjonsnumre (`scripts/oppdater-versjoner.py`) og ett
+  deployskript (`scripts/deploy.sh`) med positiv liste. Funn underveis: den
+  gamle utelukkingslista manglet `docs/`, som ville lekket denne fila.
+- `.svc-arr`-kontrast, klebrig sidestolpe på /for-advokater/, wrangler 4.71 → 4.143.
+- Måleskriptet mitt hadde en feil som først så ut som CLS 0,05–0,16: hver
+  måling la til en ny `PerformanceObserver`. Registrer observatøren én gang per fane.
+
 ## 29.09.2026 — COWI-spørsmålet lukket
 
 Bengts avgjørelse: påstandene står; uavhengighet vurderes per sak, og han trekker seg når COWI, Sweco eller andre med bånd er involvert. Analysen under var grunnlaget for spørsmålet (skrevet 08.–09.09), og er beholdt som referanse:
