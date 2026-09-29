@@ -565,6 +565,32 @@ flater og groenne tak» er blitt **Dimensjonering** av det samme.
 FAQ-svaret om VA-rammeplan paa overvannssiden («danner grunnlag for senere
 detaljprosjektering») er beholdt — det beskriver neste fase, ikke en leveranse.
 
+## Godkjenning og tiltaksklasser (29.09.2026)
+
+🔴 **Ingen sentral godkjenning.** DiBKs register (sgregister.dibk.no) sa
+29.09.2026 «Foretaket finnes ikke» for baade 932 480 956 og 932 349 280.
+Nettsiden paasto «Vi er godkjent for uavhengig kontroll i tiltaksklasse 1, 2
+og 3 … Vi har ansvarsrett fra DiBK». Begge deler er fjernet (Bengts
+godkjenning samme dag):
+
+- **DiBK gir ikke ansvarsrett** — DiBK gir frivillig sentral godkjenning.
+  Ansvarsrett erklaerer foretaket selv per sak. Skriv aldri «ansvarsrett fra
+  DiBK» eller «godkjent for» uten at godkjenningen finnes i registeret.
+- **Tiltaksklasse-paastander om egen dekning er fjernet overalt** (meta og
+  Service-beskrivelse, ingress, innledning, FAQ, tjenestekortene paa forsiden
+  og /tjenester/, «Faglig tyngde» paa forsiden, llms.txt). Grunn: TK3 krever
+  normalt utdanning paa masternivaa (SAK10 § 11-3), og Bengt er ingenioer, ikke
+  sivilingenioer — samme grunn som `hasCredential` ble fjernet 07.09.
+  🔴 Ikke gjeninnfoer tiltaksklasser foer Bengt har bekreftet hvilke han er
+  kvalifisert for.
+- FAQ-en heter naa «Hvilken ansvarsrett har dere?»: «Vi erklaerer ansvarsrett
+  som uavhengig kontrollerende for VA- og overvannsanlegg, og dokumenterer
+  kvalifikasjonene i hver sak.»
+- BEHOLDT fordi det beskriver loven, ikke oss: «Plan- og bygningsloven krever
+  uavhengig kontroll for tiltak i tiltaksklasse 2 og 3», FAQ-en om naar kontroll
+  er lovpaalagt, oversikten «Tiltaksklasser», og prisvaret («avhenger av
+  tiltaksklasse»).
+
 ## Personinformasjon og priser (07.09.2026)
 
 - **Bengt er ingenioer, ikke sivilingenioer.** Tittelen sto 32 steder, inkludert
