@@ -513,13 +513,22 @@ Lenkene er offentlige delelenker, ikke hemmeligheter.
 
 ## Tjenesteomfang: prosjektering kun til reguleringsplan og rammesoeknad (Bengts avgjoerelse 29.09.2026)
 
-🔴 **Gjelder ALL prosjektering — VA og overvann.** Kun til reguleringsplan og
-rammesoeknad, aldri til igangsettingstillatelse (IG). Overvannssiden sier det
-naa i meta-beskrivelse, ingress og innledning; leveranselista sier
-«til reguleringsplan og rammesoeknad», og FAQ-en om aa ta over prosjekter
-sier «saa lenge prosjektet er i regulerings- eller rammesoeknadsfasen» (ikke
-lenger «overvannsdokumentasjon foer ferdigattest»). BREEAM-siden: LOD-tiltak
-er «Dimensjonering», ikke prosjektering. Tjenestenavnet «Overvannsraadgivning
+🔴 **Gjelder ALL prosjektering — VA og overvann — og KUN prosjektering.** Kun
+til reguleringsplan og rammesoeknad, aldri til igangsettingstillatelse (IG).
+
+🔴 **Unntatt, i alle faser (Bengt 29.09):** uavhengig kontroll (KPR/KUT, ogsaa
+av det som er prosjektert til IG og det som er bygget, og sluttkontroll foer
+ferdigattest), og **rapporter** — BREEAM-rapporter for det som skal bygges,
+overvannsdokumentasjon foer ferdigattest, sakkyndige rapporter. Ikke
+begrens disse til reguleringsplan/rammesoeknad. «Fra skisseprosjekt til
+ferdig byggesak» paa forsiden er derfor riktig og skal staa.
+
+Overvannssiden sier avgrensningen i meta-beskrivelse, ingress og
+innledning. Leveransepunktet «Rapporter og dokumentasjon for soeknad og
+kontroll» er uendret, og FAQ-en om aa ta over prosjekter skiller: prosjektering
+kun i regulerings-/rammesoeknadsfasen, kontroll og dokumentasjon foer
+ferdigattest i senere faser. BREEAM-siden: LOD-tiltak er «Dimensjonering»,
+ikke prosjektering. Tjenestenavnet «Overvannsraadgivning
 og prosjektering» er BEHOLDT — det staar i menyer paa alle 14 sider.
 
 VA-prosjektering tilbys **kun** som VA-rammeplan for reguleringsformaal og
