@@ -233,7 +233,19 @@ med T-en (49,54,58) forsvinner mot svart. Fra 29.09.2026 bruker toppmenyen
 `logo-lys-96.webp`: gjennomsiktig bakgrunn, alfa i kantene regnet ut fra
 naermeste faste pikselfarge (ikke bare svart→hvit, som gir moerk rand).
 Bunnteksten har moerk bakgrunn (`--ink`) og beholder `logo-96.webp`.
-`logo.jpg` i JSON-LD, favicon og apple-touch-icon har fortsatt svart bakgrunn.
+
+Samme dag fikk resten lyse versjoner (alle laget fra samme gjennomsiktige
+utgave):
+- **JSON-LD `logo`/`image`** peker paa `assets/logo-lys.jpg` (806 px, hvit
+  bakgrunn — Google viser logoen paa hvitt). `logo.jpg` ligger igjen, ubrukt.
+- **`favicon.png`** (96 px, multiplum av 48 som Google krever) og
+  **`favicon.ico`** (16/32/48): hvit skive bak logoen, gjennomsiktig utenfor —
+  synlig i baade lys og moerk nettleserfane. Ikke gjoer den helt gjennomsiktig;
+  da forsvinner ringen i moerk fane.
+- **`apple-touch-icon.png`** (180 px): UGJENNOMSIKTIG hvit — iOS fyller
+  gjennomsiktighet med svart. Logoen paa 80 % fordi iOS runder hjoernene.
+- Rotfilene er overskrevet paa samme sti (klienter henter dem der direkte),
+  og lenkene har `?v=20260929`. Endres ikonene igjen: bump `?v=` paa alle 14.
 
 ### 🔴 Assets ligger 4 timer paa edge — endre URL, ikke bare fila
 
