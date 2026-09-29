@@ -526,8 +526,16 @@ Civil 3D-modell med hoeydekoter og kumkoordinater, og leveringstid for
 detaljprosjektering. Tjenestekortet paa forsiden og /tjenester/ og VA-linja i
 llms.txt er rettet tilsvarende.
 
+Ogsaa fjernet (runde 2, samme dag): omlegging og sanering av eksisterende
+ledningsnett (baade «Typiske prosjekter» og «Naar trenger du dette?»).
+FAQ-en om koordinering med andre fag er BEHOLDT, men svaret er begrenset til
+reguleringsplan og rammesoeknad.
+
 Samme regel gjelder paa tvers: «avslutte detaljprosjektering» er tatt ut av
 overvannssidens FAQ, og «detaljprosjekt» av overvannslinja i llms.txt.
+Overvannssidens leveranseliste: «Tilkobling til kommunalt nett og
+utslippstillatelser» er fjernet, og «Prosjektering av regnbed, permeable
+flater og groenne tak» er blitt **Dimensjonering** av det samme.
 FAQ-svaret om VA-rammeplan paa overvannssiden («danner grunnlag for senere
 detaljprosjektering») er beholdt — det beskriver neste fase, ikke en leveranse.
 
