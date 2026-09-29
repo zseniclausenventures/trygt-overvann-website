@@ -228,6 +228,13 @@ Ikke gaa tilbake til `background-image` for fotografier.
 `<img>` bruker naa `logo-96.webp` (2,5 KB); **JSON-LD beholder `logo.jpg`**,
 som ikke hentes av nettleseren og boer vaere stor.
 
+🔴 **Logoen har SVART bakgrunn innbakt (ingen alfa)** — den moerkegraa ringen
+med T-en (49,54,58) forsvinner mot svart. Fra 29.09.2026 bruker toppmenyen
+`logo-lys-96.webp`: gjennomsiktig bakgrunn, alfa i kantene regnet ut fra
+naermeste faste pikselfarge (ikke bare svart→hvit, som gir moerk rand).
+Bunnteksten har moerk bakgrunn (`--ink`) og beholder `logo-96.webp`.
+`logo.jpg` i JSON-LD, favicon og apple-touch-icon har fortsatt svart bakgrunn.
+
 ### 🔴 Assets ligger 4 timer paa edge — endre URL, ikke bare fila
 
 Foerste deploy tok ikke effekt: `cf-cache-status: HIT` med gammel
@@ -516,12 +523,16 @@ Lenkene er offentlige delelenker, ikke hemmeligheter.
 🔴 **Gjelder ALL prosjektering — VA og overvann — og KUN prosjektering.** Kun
 til reguleringsplan og rammesoeknad, aldri til igangsettingstillatelse (IG).
 
-🔴 **Unntatt, i alle faser (Bengt 29.09):** uavhengig kontroll (KPR/KUT, ogsaa
-av det som er prosjektert til IG og det som er bygget, og sluttkontroll foer
+🔴 **Unntatt, i alle faser (Bengt 29.09):** uavhengig kontroll (ogsaa av det
+som er prosjektert til IG og det som er bygget, og sluttkontroll foer
 ferdigattest), og **rapporter** — BREEAM-rapporter for det som skal bygges,
 overvannsdokumentasjon foer ferdigattest, sakkyndige rapporter. Ikke
-begrens disse til reguleringsplan/rammesoeknad. «Fra skisseprosjekt til
-ferdig byggesak» paa forsiden er derfor riktig og skal staa.
+begrens disse til reguleringsplan/rammesoeknad paa tjenestesidene.
+
+🔴 **Men forsidens hovedlofte skal IKKE si «til ferdig byggesak».** Bengt
+rettet dette samme dag: hero-teksten sier naa «Uavhengig raadgivning fra
+reguleringsplan til rammesoeknad». Forsiden beskriver kjernetilbudet, ikke
+unntakene — ikke gjeninnfoer «fra skisseprosjekt til ferdig byggesak».
 
 Overvannssiden sier avgrensningen i meta-beskrivelse, ingress og
 innledning. Leveransepunktet «Rapporter og dokumentasjon for soeknad og
