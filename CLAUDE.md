@@ -586,6 +586,11 @@ godkjenning samme dag):
 - FAQ-en heter naa «Hvilken ansvarsrett har dere?»: «Vi erklaerer ansvarsrett
   som uavhengig kontrollerende for VA- og overvannsanlegg, og dokumenterer
   kvalifikasjonene i hver sak.»
+- **Kontroll av prosjekter der vi laget rammeplan/rammesoeknad: AVKLART, ikke
+  et tema paa nettsiden** (Bengt 29.09). Uavhengig kontroll av et ANNET firmas
+  detaljprosjektering er greit selv om den bygger paa vaar rammesoeknad, og
+  kontroll av utfoerelse er greit. Kontroll av egen prosjektering tar vi aldri.
+  Ikke skriv noe om dette paa sida, og ikke ta det opp som funn igjen.
 - BEHOLDT fordi det beskriver loven, ikke oss: «Plan- og bygningsloven krever
   uavhengig kontroll for tiltak i tiltaksklasse 2 og 3», FAQ-en om naar kontroll
   er lovpaalagt, oversikten «Tiltaksklasser», og prisvaret («avhenger av
