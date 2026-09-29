@@ -53,12 +53,12 @@ Gjenstår fra auditen — **alt som gjenstår krever Bengt, ikke en økt:**
    og en Business Profile er langt mer synlig enn LinkedIn-lenken som alt ble
    utelatt av samme grunn. Avgjør også «100 % Uavhengig» og habilitetssvaret.
 
-   🔴 **Profilbeskrivelsen fra 14.09 er IKKE lagret noe sted** (funnet 29.09).
-   Handoffen 14.09 og memory påsto at ordlyden sto her i CLAUDE.md — den
-   gjorde aldri det; den ble bare levert i samtalen. Er den ikke limt inn i
-   profilen, må den skrives på nytt — og da med omfanget fra 29.09: ingen
-   detaljprosjektering, ingen tiltaksklasser, ingen «godkjent». Sjekk samtidig
-   tjenestelista i profilen og hos Proff/1881 for de samme løftene.
+   🔴 **Profilbeskrivelsen ligger i `tasks/gbp-beskrivelse.md`** (skrevet på
+   nytt 29.09, 713 tegn). 14.09-versjonen ble aldri lagret — den sto bare i
+   samtalen, selv om handoffen og memory påsto at den lå her. Lagre alltid
+   tekst til eksterne flater i repoet. Gjenstår for Bengt: lime den inn, og
+   sjekke tjenestelista i profilen og hos Proff/1881 for detaljprosjektering
+   og tiltaksklasse 3.
 3. **Person `sameAs`** — LinkedIn (kolliderer med punkt 2), Proff-rolle, eller
    ingen. Person-noden har i dag null ekstern forankring.
 4. **M1: NAP-siteringer** (Proff/1881/Gulesider). 🔴 Google Business Profile
@@ -611,8 +611,12 @@ godkjenning samme dag):
   og /tjenester/, «Faglig tyngde» paa forsiden, llms.txt). Grunn: TK3 krever
   normalt utdanning paa masternivaa (SAK10 § 11-3), og Bengt er ingenioer, ikke
   sivilingenioer — samme grunn som `hasCredential` ble fjernet 07.09.
-  🔴 Ikke gjeninnfoer tiltaksklasser foer Bengt har bekreftet hvilke han er
-  kvalifisert for.
+  **Bengt bekreftet 29.09: tiltaksklasse 1 og 2.** Lagt tilbake paa de samme
+  ti stedene som «tiltaksklasse 1 og 2» (og «Naar trenger du dette?» sier
+  «tiltaksklasse 2», ikke «2 eller 3»).
+  🔴 **TK3 forventes januar 2027**, naar mastergraden er paa plass (med 18 aars
+  erfaring). Foer det: aldri TK3 som egen dekning. Naar det skjer: bytt «1 og
+  2» → «1, 2 og 3» paa nettsiden OG i `tasks/gbp-beskrivelse.md` samme dag.
 - FAQ-en heter naa «Hvilken ansvarsrett har dere?»: «Vi erklaerer ansvarsrett
   som uavhengig kontrollerende for VA- og overvannsanlegg, og dokumenterer
   kvalifikasjonene i hver sak.»
